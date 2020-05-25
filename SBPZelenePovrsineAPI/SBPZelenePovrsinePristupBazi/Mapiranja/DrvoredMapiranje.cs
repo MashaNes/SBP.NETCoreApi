@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SBPZelenePovrsine.Entiteti;
+using SBPZelenePovrsinePristupBazi.Entiteti;
 using FluentNHibernate.Mapping;
 
-namespace SBPZelenePovrsine.Mapiranja
+namespace SBPZelenePovrsinePristupBazi.Mapiranja
 {
     public class DrvoredMapiranje : SubclassMap<Drvored>
     {

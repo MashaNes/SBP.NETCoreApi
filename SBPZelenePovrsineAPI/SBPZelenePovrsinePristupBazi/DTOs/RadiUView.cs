@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SBPZelenePovrsinePristupBazi.Entiteti;
 
 namespace SBPZelenePovrsinePristupBazi.DTOs
 {
-    class RadiUView
+    public class RadiUView
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
-using SBPZelenePovrsine.Mapiranja;
+using SBPZelenePovrsinePristupBazi.Mapiranja;
 
 namespace SBPZelenePovrsine
 {
@@ -44,7 +44,7 @@ namespace SBPZelenePovrsine
             }
             catch (Exception ec)
             {
-                System.Windows.Forms.MessageBox.Show(ec.Message);
+                Console.WriteLine(ec.Message);
                 return null;
             }
 

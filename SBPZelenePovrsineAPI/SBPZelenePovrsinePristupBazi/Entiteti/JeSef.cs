@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SBPZelenePovrsine.Entiteti
+namespace SBPZelenePovrsinePristupBazi.Entiteti
 {
     public class JeSef
     {

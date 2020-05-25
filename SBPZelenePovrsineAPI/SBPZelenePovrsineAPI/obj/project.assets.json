@@ -5041,11 +5041,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\XPC\\source\\repos\\SBPZelenePovrsineAPI\\SBPZelenePovrsineAPI\\SBPZelenePovrsineAPI.csproj",
+      "projectUniqueName": "D:\\Fakultet\\3. Godina\\6. semestar\\Sistemi baza podataka\\GitHub\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsineAPI\\SBPZelenePovrsineAPI.csproj",
       "projectName": "SBPZelenePovrsineAPI",
-      "projectPath": "C:\\Users\\XPC\\source\\repos\\SBPZelenePovrsineAPI\\SBPZelenePovrsineAPI\\SBPZelenePovrsineAPI.csproj",
+      "projectPath": "D:\\Fakultet\\3. Godina\\6. semestar\\Sistemi baza podataka\\GitHub\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsineAPI\\SBPZelenePovrsineAPI.csproj",
       "packagesPath": "C:\\Users\\XPC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\XPC\\source\\repos\\SBPZelenePovrsineAPI\\SBPZelenePovrsineAPI\\obj\\",
+      "outputPath": "D:\\Fakultet\\3. Godina\\6. semestar\\Sistemi baza podataka\\GitHub\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsineAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\XPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5061,8 +5061,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\XPC\\source\\repos\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj": {
-              "projectPath": "C:\\Users\\XPC\\source\\repos\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj"
+            "D:\\Fakultet\\3. Godina\\6. semestar\\Sistemi baza podataka\\GitHub\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj": {
+              "projectPath": "D:\\Fakultet\\3. Godina\\6. semestar\\Sistemi baza podataka\\GitHub\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj"
             }
           }
         }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentNHibernate.Mapping;
-using SBPZelenePovrsine.Entiteti;
+using SBPZelenePovrsinePristupBazi.Entiteti;
 
-namespace SBPZelenePovrsine.Mapiranja
+namespace SBPZelenePovrsinePristupBazi.Mapiranja
 {
     public class RadnikMapiranja: ClassMap<Radnik>
     {
