@@ -8,7 +8,7 @@ using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using SBPZelenePovrsinePristupBazi.Mapiranja;
 
-namespace SBPZelenePovrsine
+namespace SBPZelenePovrsinePristupBazi
 {
     class DataLayer
     {

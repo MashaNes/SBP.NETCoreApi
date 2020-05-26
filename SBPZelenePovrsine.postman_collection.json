@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "b7541b29-f42d-4788-a3e6-32ee3d24f2e3",
+		"name": "SBPZelenePovrsine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetZelenePovrsine",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/ecmascript",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiZelenePovrsine",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiZelenePovrsine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDrvoredi",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiDrvorede",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiDrvorede"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDrvored",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiDrvored/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiDrvored",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateDrvored",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ulica\": \"Ivana Gorana Kovačića\",\r\n    \"duzina\": 60,\r\n    \"brojStabala\": 20,\r\n    \"vrstaDrveta\": \"Jasen\",\r\n    \"zonaUgrozenosti\": \"Zona srednje ugroženosti\",\r\n    \"opstina\": \"Niška Banja\",\r\n    \"tipPovrsine\": \"Drvored\"\r\n }"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/DodajDrvored",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"DodajDrvored"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeDrvored",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ulica\": \"Ivana Gorana Kovačića\",\r\n    \"duzina\": 62,\r\n    \"brojStabala\": 21,\r\n    \"vrstaDrveta\": \"Smreka\",\r\n    \"zonaUgrozenosti\": \"Zona srednje ugroženosti\",\r\n    \"opstina\": \"Niška Banja\",\r\n    \"tipPovrsine\": \"Drvored\",\r\n    \"id\": 44\r\n }"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PromeniDrvored",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PromeniDrvored"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteDrvored",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/IzbrisiDrvored/44",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"IzbrisiDrvored",
+						"44"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
