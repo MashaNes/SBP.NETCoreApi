@@ -170,6 +170,146 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "GetTravnjaci",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiTravnjake",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiTravnjake"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTravnjak",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiTravnjak/11",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiTravnjak",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateTravnjak",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"adresaZgrade\": \"Nosioci karađorđeve zvezde 5\",\r\n  \"povrsina\": 0.4,\r\n  \"zonaUgrozenosti\": \"Zona srednje ugroženosti\",\r\n  \"opstina\": \"Palilula\",\r\n  \"tipPovrsine\": \"Travnjak\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/DodajTravnjak",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"DodajTravnjak"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeTravnjak",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"adresaZgrade\": \"Nosioci karađorđeve zvezde 7\",\r\n  \"povrsina\": 0.45,\r\n  \"zonaUgrozenosti\": \"Zona srednje ugroženosti\",\r\n  \"opstina\": \"Palilula\",\r\n  \"tipPovrsine\": \"Travnjak\",\r\n  \"id\": 45\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PromeniTravnjak",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PromeniTravnjak"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTravnjak",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/IzbrisiTravnjak/45",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"IzbrisiTravnjak",
+						"45"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}

@@ -156,6 +156,122 @@ namespace SBPZelenePovrsinePristupBazi
             }
         }
         #endregion
+
+        #region Travnjaci
+        public static void ObrisiTravnjak(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Travnjak t = s.Get<Travnjak>(id);
+
+                s.Delete(t);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void IzmeniTravnjak(TravnjakView travnjak)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Travnjak t = s.Get<Travnjak>(travnjak.Id);
+
+                t.AdresaZgrade = travnjak.AdresaZgrade;
+                t.Povrsina = travnjak.Povrsina;
+
+                s.SaveOrUpdate(t);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void SacuvajTravnjak(TravnjakView travnjak)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Travnjak t = new Travnjak();
+
+                t.AdresaZgrade = travnjak.AdresaZgrade;
+                t.Povrsina = travnjak.Povrsina;
+                t.ZonaUgrozenosti = travnjak.ZonaUgrozenosti;
+                t.Opstina = travnjak.Opstina;
+                t.TipPovrsine = travnjak.TipPovrsine;
+
+                s.Save(t);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static TravnjakView VratiTravnjak(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Travnjak t = s.Get<Travnjak>(id);
+
+                TravnjakView travnjak = new TravnjakView(t);
+
+                s.Close();
+
+                return travnjak;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static List<TravnjakView> VratiTravnjake()
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Travnjak> travnjaci = s.QueryOver<Travnjak>()
+                                           .OrderBy(x => x.Id).Asc
+                                           .List<Travnjak>();
+
+                List<TravnjakView> returnValue = new List<TravnjakView>();
+
+                foreach (Travnjak t in travnjaci)
+                {
+                    TravnjakView travnjak = new TravnjakView(t);
+                    returnValue.Add(travnjak);
+                }
+
+                s.Close();
+
+                return returnValue;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+        #endregion
         #endregion
     }
 }

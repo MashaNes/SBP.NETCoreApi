@@ -109,5 +109,86 @@ namespace SBPZelenePovrsineAPI.Controllers
                 return BadRequest(ex.ToString());
             }
         }
+
+        [HttpGet]
+        [Route("PreuzmiTravnjake")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetTravnjaci()
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiTravnjake());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("PreuzmiTravnjak/{id}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetTravnjak(int id)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiTravnjak(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPost]
+        [Route("DodajTravnjak")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddTravnjak([FromBody]TravnjakView t)
+        {
+            try
+            {
+                DataProvider.SacuvajTravnjak(t);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPut]
+        [Route("PromeniTravnjak")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ChangeTravnjak([FromBody]TravnjakView t)
+        {
+            try
+            {
+                DataProvider.IzmeniTravnjak(t);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpDelete]
+        [Route("IzbrisiTravnjak/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult DeleteTravnjak(int id)
+        {
+            try
+            {
+                DataProvider.ObrisiTravnjak(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
     }
 }
