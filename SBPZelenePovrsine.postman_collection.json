@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b7541b29-f42d-4788-a3e6-32ee3d24f2e3",
+		"_postman_id": "035d01fc-cfff-45a8-9be7-a2e51037f097",
 		"name": "SBPZelenePovrsine",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -308,6 +308,206 @@
 						"45"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadnici",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnike",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnike"
+					]
+				},
+				"description": "Pribavljanje svih radnika"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadnik",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnika/321",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnika",
+						"321"
+					]
+				},
+				"description": "Pribavljanje konkretnog radnika"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRadnik",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/IzbrisiRadnika/521",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"IzbrisiRadnika",
+						"521"
+					]
+				},
+				"description": "Brisanje konkretnog radnika"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadniciOdrzavanjeZelenila",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnikeOdrzavanjeZelenila",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnikeOdrzavanjeZelenila"
+					]
+				},
+				"description": "Pribavljanje svih radnika koji rade na održavanju zelenila"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadnikOdrzavanjeZelenila",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnikaOdrzavanjeZelenila/165",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnikaOdrzavanjeZelenila",
+						"165"
+					]
+				},
+				"description": "Pribavljanje konkretnog radnika na održavanju zelenila"
+			},
+			"response": []
+		},
+		{
+			"name": "PostRadnikOdrzavanjeZelenila",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"BrRadneKnjizice\": \"521\",\n\t\"MBr\": \"2106978730039\",\n\t\"Ime\": \"Aleksa\",\n\t\"ImeRoditelja\": \"Ivan\",\n\t\"Prezime\": \"Trajkovic\",\n\t\"Adresa\": \"Aleksandra Medvedeva 21, Niš\",\n\t\"DatumRodjenja\": \"2020-06-21\",\n\t\"StrucnaSprema\": \"Drugi stepen\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/DodajRadnikaOdrzavanjeZelenila",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"DodajRadnikaOdrzavanjeZelenila"
+					]
+				},
+				"description": "Dodavanje radnika na odrzavanju zelenila"
+			},
+			"response": []
+		},
+		{
+			"name": "PutIzmeniRadnikaOdrzavanjeZelenila",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"BrRadneKnjizice\": \"521\",\n\t\"MBr\": \"2106978730039\",\n\t\"Ime\": \"Aleksa\",\n\t\"ImeRoditelja\": \"Ivan\",\n\t\"Prezime\": \"Trajkovic\",\n\t\"Adresa\": \"Bulevar Nemanjića 64, Niš\",\n\t\"DatumRodjenja\": \"2020-06-21\",\n\t\"StrucnaSprema\": \"Treći stepen\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PromeniRadnikaOdrzavanjeZelenila",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PromeniRadnikaOdrzavanjeZelenila"
+					]
+				},
+				"description": "Izmena podataka o konkretnom radniku koji radi na održavanju zelenila"
 			},
 			"response": []
 		}
