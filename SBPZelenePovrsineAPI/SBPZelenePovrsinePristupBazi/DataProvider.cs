@@ -273,5 +273,182 @@ namespace SBPZelenePovrsinePristupBazi
         }
         #endregion
         #endregion
+
+        #region Radnici
+
+        public static List<RadnikView> VratiRadnike()
+        {
+            List<RadnikView> returnValue = new List<RadnikView>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Radnik> radnici = s.QueryOver<Radnik>().List<Radnik>();
+
+                foreach (Radnik r in radnici)
+                {
+                    RadnikView rv = new RadnikView(r);
+                    returnValue.Add(rv);
+                }
+
+                s.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return returnValue;
+        }
+
+        public static RadnikView VratiOdredjenogRadnika(string brKnjizice)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Radnik radnik = s.Get<Radnik>(brKnjizice);
+                RadnikView radnikView = new RadnikView(radnik);
+
+                s.Close();
+
+                return radnikView;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void ObrisiRadnika(string brKnjizice)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Radnik radnik = s.Get<Radnik>(brKnjizice);
+                s.Delete(radnik);
+                s.Flush();
+                s.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        #region RadniciOdrzavanjeZelenila
+
+        public static List<RadnikOdrzavanjeZelenilaView> VratiRadnikeOdrzavanjeZelenila()
+        {
+            List<RadnikOdrzavanjeZelenilaView> returnValue = new List<RadnikOdrzavanjeZelenilaView>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                ISQLQuery sqlQuery = s.CreateSQLQuery("SELECT * FROM RADNIK WHERE TIP_ANGAZOVANJA = 'Održavanje zelenila'");
+                sqlQuery.AddEntity(typeof(RadnikOdrzavanjeZelenila));
+                IList<RadnikOdrzavanjeZelenila> radnici = sqlQuery.List<RadnikOdrzavanjeZelenila>();
+
+                foreach (RadnikOdrzavanjeZelenila r in radnici)
+                {
+                    RadnikOdrzavanjeZelenilaView rv = new RadnikOdrzavanjeZelenilaView(r);
+                    returnValue.Add(rv);
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return returnValue;
+        }
+
+        public static RadnikOdrzavanjeZelenilaView VratiOdredjenogRadnikaOdrzavanjeZelenila(string brKnjizice)
+        {
+            
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ISQLQuery sqlQuery = s.CreateSQLQuery("SELECT * FROM RADNIK WHERE BR_RADNE_KNJIZICE = ? AND TIP_ANGAZOVANJA = ?");
+                sqlQuery.SetParameter(0, brKnjizice);
+                sqlQuery.SetParameter(1, "Održavanje zelenila");
+                sqlQuery.AddEntity(typeof(RadnikOdrzavanjeZelenila));
+
+                RadnikOdrzavanjeZelenila radnik = sqlQuery.UniqueResult<RadnikOdrzavanjeZelenila>();
+
+                RadnikOdrzavanjeZelenilaView radnikView = new RadnikOdrzavanjeZelenilaView(radnik);
+
+                s.Close();
+
+                return radnikView;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void SacuvajRadnikaOdrzavanjeZelenila(RadnikOdrzavanjeZelenilaView radnikView)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadnikOdrzavanjeZelenila radnik = new RadnikOdrzavanjeZelenila();
+                radnik.BrRadneKnjizice = radnikView.BrRadneKnjizice;
+                radnik.MBr = radnikView.MBr;
+                radnik.Ime = radnikView.Ime;
+                radnik.ImeRoditelja = radnikView.ImeRoditelja;
+                radnik.Prezime = radnikView.Prezime;
+                radnik.Adresa = radnikView.Adresa;
+                radnik.DatumRodjenja = radnikView.DatumRodjenja;
+                radnik.StrucnaSprema = radnikView.StrucnaSprema;
+
+                s.Save(radnik);
+                s.Flush();
+
+                s.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void IzmeniRadnikaOdrzavanjeZelenila(RadnikOdrzavanjeZelenilaView radnikView)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadnikOdrzavanjeZelenila radnik = s.Load<RadnikOdrzavanjeZelenila>(radnikView.BrRadneKnjizice);
+                radnik.MBr = radnikView.MBr;
+                radnik.Ime = radnikView.Ime;
+                radnik.ImeRoditelja = radnikView.ImeRoditelja;
+                radnik.Prezime = radnikView.Prezime;
+                radnik.Adresa = radnikView.Adresa;
+                radnik.DatumRodjenja = radnikView.DatumRodjenja;
+                radnik.StrucnaSprema = radnikView.StrucnaSprema;
+
+                s.SaveOrUpdate(radnik);
+                s.Flush();
+                s.Close();
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+        #endregion
+        #endregion
     }
 }
