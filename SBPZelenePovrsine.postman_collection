@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "035d01fc-cfff-45a8-9be7-a2e51037f097",
-		"name": "SBPZelenePovrsine",
+		"_postman_id": "9c83f77d-4957-417f-9584-48cf68087ae0",
+		"name": "SBPZelenePovrsine copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -26,6 +26,60 @@
 					"path": [
 						"ZelenaPovrsina",
 						"PreuzmiZelenePovrsine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetZelenaPovrsina",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiZelenuPovrsinu/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiZelenuPovrsinu",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteZelenaPovrsina",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/IzbrisiZelenuPovrsinu/46",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"IzbrisiZelenuPovrsinu",
+						"46"
 					]
 				}
 			},
@@ -127,7 +181,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"ulica\": \"Ivana Gorana Kovačića\",\r\n    \"duzina\": 62,\r\n    \"brojStabala\": 21,\r\n    \"vrstaDrveta\": \"Smreka\",\r\n    \"zonaUgrozenosti\": \"Zona srednje ugroženosti\",\r\n    \"opstina\": \"Niška Banja\",\r\n    \"tipPovrsine\": \"Drvored\",\r\n    \"id\": 44\r\n }"
+					"raw": "{\r\n    \"ulica\": \"Ivana Gorana Kovačića\",\r\n    \"duzina\": 62,\r\n    \"brojStabala\": 21,\r\n    \"vrstaDrveta\": \"Smreka\",\r\n    \"zonaUgrozenosti\": \"Zona srednje ugroženosti\",\r\n    \"opstina\": \"Niška Banja\",\r\n    \"tipPovrsine\": \"Drvored\",\r\n    \"id\": 47\r\n }"
 				},
 				"url": {
 					"raw": "https://localhost:44332/ZelenaPovrsina/PromeniDrvored",
@@ -156,7 +210,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:44332/ZelenaPovrsina/IzbrisiDrvored/44",
+					"raw": "https://localhost:44332/ZelenaPovrsina/IzbrisiDrvored/47",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -165,7 +219,7 @@
 					"path": [
 						"ZelenaPovrsina",
 						"IzbrisiDrvored",
-						"44"
+						"47"
 					]
 				}
 			},
@@ -306,6 +360,146 @@
 						"ZelenaPovrsina",
 						"IzbrisiTravnjak",
 						"45"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetParkovi",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiParkove",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiParkove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPark",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiPark/48",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiPark",
+						"48"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreatePark",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"povrsina\": 12.4,\r\n  \"naziv\": \"Park Mashe Neshic\",\r\n  \"zonaUgrozenosti\": \"Zona niske ugroženosti\",\r\n  \"opstina\": \"Medijana\",\r\n  \"tipPovrsine\": \"Park\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/DodajPark",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"DodajPark"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangePark",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"povrsina\": 12.5,\r\n  \"naziv\": \"Park Masice Nesic\",\r\n  \"zonaUgrozenosti\": \"Zona niske ugroženosti\",\r\n  \"opstina\": \"Medijana\",\r\n  \"tipPovrsine\": \"Park\",\r\n  \"id\": 50\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PromeniPark",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PromeniPark"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePark",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/IzbrisiPark/50",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"IzbrisiPark",
+						"50"
 					]
 				}
 			},

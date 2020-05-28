@@ -30,6 +30,38 @@ namespace SBPZelenePovrsineAPI.Controllers
         }
 
         [HttpGet]
+        [Route("PreuzmiZelenuPovrsinu/{id}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetZelenaPovrsina(int id)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiZelenuPovrsinu(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpDelete]
+        [Route("IzbrisiZelenuPovrsinu/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult DeleteZelenaPovrsina(int id)
+        {
+            try
+            {
+                DataProvider.ObrisiZelenuPovrsinu(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
         [Route("PreuzmiDrvorede")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GetDrvorede()
@@ -183,6 +215,87 @@ namespace SBPZelenePovrsineAPI.Controllers
             try
             {
                 DataProvider.ObrisiTravnjak(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("PreuzmiParkove")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetParkovi()
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiParkove());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("PreuzmiPark/{id}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetPark(int id)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiPark(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPost]
+        [Route("DodajPark")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddPark([FromBody]ParkView p)
+        {
+            try
+            {
+                DataProvider.SacuvajPark(p);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPut]
+        [Route("PromeniPark")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ChangePark([FromBody]ParkView p)
+        {
+            try
+            {
+                DataProvider.IzmeniPark(p);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpDelete]
+        [Route("IzbrisiPark/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult DeletePark(int id)
+        {
+            try
+            {
+                DataProvider.ObrisiPark(id);
                 return Ok();
             }
             catch (Exception ex)

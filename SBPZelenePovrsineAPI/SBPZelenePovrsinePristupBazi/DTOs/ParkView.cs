@@ -23,6 +23,9 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
 
         public ParkView(Park p) : base(p)
         {
+            Radnici = new List<RadiUView>();
+            Sefovi = new List<JeSefView>();
+            Objekti = new List<ObjekatView>();
             Povrsina = p.Povrsina;
             Naziv = p.Naziv;
         }

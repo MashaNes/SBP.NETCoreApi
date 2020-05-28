@@ -3,6 +3,7 @@ using SBPZelenePovrsinePristupBazi.DTOs;
 using SBPZelenePovrsinePristupBazi.Entiteti;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace SBPZelenePovrsinePristupBazi
@@ -35,6 +36,132 @@ namespace SBPZelenePovrsinePristupBazi
             {
                 Console.WriteLine(exc.Message);
                 return new List<ZelenaPovrsinaView>();
+            }
+        }
+
+        public static ZelenaPovrsinaView VratiZelenuPovrsinu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                ZelenaPovrsina zp = s.Get<ZelenaPovrsina>(id);
+
+                if(zp.GetType() == typeof(Drvored))
+                {
+                    Drvored d = zp as Drvored;
+                    DrvoredView drvored = new DrvoredView(d);
+                    s.Close();
+                    return drvored;
+                }
+                else if(zp.GetType() == typeof(Travnjak))
+                {
+                    Travnjak t = zp as Travnjak;
+                    TravnjakView travnjak = new TravnjakView(t);
+                    s.Close();
+                    return travnjak;
+                }
+                else if (zp.GetType() == typeof(Park))
+                {
+                    Park p = zp as Park;
+                    ParkView park = new ParkView(p);
+
+                    foreach (RadiU ru in p.Radnici)
+                    {
+                        RadiUView ruv = new RadiUView(ru);
+                        ruv.Park = null;
+                        park.Radnici.Add(ruv);
+                    }
+
+                    foreach (JeSef js in p.Sefovi)
+                    {
+                        JeSefView jsv = new JeSefView(js);
+                        jsv.Park = null;
+                        park.Sefovi.Add(jsv);
+                    }
+
+                    park.Objekti = p.Objekti.Select(x => new ObjekatView(x)).ToList();
+                    
+                    /*foreach(Objekat o in p.Objekti)
+                    {
+                        if(o.GetType() == typeof(Spomenik))
+                        {
+                            Spomenik sp = o as Spomenik;
+                            SpomenikView spv = new SpomenikView(sp);
+                            if (sp.Zasticen != null)
+                                spv.Zasticen = new ZasticenView(sp.Zasticen);
+                            park.Objekti.Add(spv);
+                        }
+                        else if (o.GetType() == typeof(Skulptura))
+                        {
+                            Skulptura sk = o as Skulptura;
+                            SkulpturaView skv = new SkulpturaView(sk);
+                            if (sk.Zasticen != null)
+                                skv.Zasticen = new ZasticenView(sk.Zasticen);
+                            park.Objekti.Add(skv);
+                        }
+                        else if (o.GetType() == typeof(Fontana))
+                        {
+                            Fontana f = o as Fontana;
+                            park.Objekti.Add(new FontanaView(f));
+                        }
+                        else if (o.GetType() == typeof(Klupa))
+                        {
+                            Klupa k = o as Klupa;
+                            park.Objekti.Add(new KlupaView(k));
+                        }
+                        else if (o.GetType() == typeof(Svetiljka))
+                        {
+                            Svetiljka sv = o as Svetiljka;
+                            park.Objekti.Add(new SvetiljkaView(sv));
+                        }
+                        else if (o.GetType() == typeof(Igraliste))
+                        {
+                            Igraliste i = (Igraliste)o;
+                            park.Objekti.Add(new IgralisteView(i));
+                        }
+                        else
+                        {
+                            Drvo d = o as Drvo;
+                            DrvoView dv = new DrvoView(d);
+                            if (d.Zasticen != null)
+                                dv.Zasticen = new ZasticenView(d.Zasticen);
+                            park.Objekti.Add(dv);
+                        }
+                    }*/
+
+                    s.Close();
+                    return park;
+                }
+
+                ZelenaPovrsinaView zelenaPovrsina = new ZelenaPovrsinaView(zp);
+
+                s.Close();
+
+                return zelenaPovrsina;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void ObrisiZelenuPovrsinu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                ZelenaPovrsina zp = s.Get<ZelenaPovrsina>(id);
+
+                s.Delete(zp);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
             }
         }
         #region Drvoredi
@@ -259,6 +386,154 @@ namespace SBPZelenePovrsinePristupBazi
                 {
                     TravnjakView travnjak = new TravnjakView(t);
                     returnValue.Add(travnjak);
+                }
+
+                s.Close();
+
+                return returnValue;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+        #endregion
+
+        #region Parkovi
+        public static void ObrisiPark(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Park p = s.Get<Park>(id);
+
+                s.Delete(p);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void IzmeniPark(ParkView park)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Park p = s.Get<Park>(park.Id);
+
+                p.Povrsina = park.Povrsina;
+                p.Naziv = park.Naziv;
+
+                s.SaveOrUpdate(p);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void SacuvajPark(ParkView park)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Park p = new Park();
+
+                p.Povrsina = park.Povrsina;
+                p.Naziv = park.Naziv;
+                p.ZonaUgrozenosti = park.ZonaUgrozenosti;
+                p.TipPovrsine = park.TipPovrsine;
+                p.Opstina = park.Opstina;
+
+                s.Save(p);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static ParkView VratiPark(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Park p = s.Get<Park>(id);
+
+                ParkView park = new ParkView(p);
+
+                foreach (RadiU ru in p.Radnici)
+                {
+                    RadiUView ruv = new RadiUView(ru);
+                    ruv.Park = null;
+                    park.Radnici.Add(ruv);
+                }
+
+                foreach (JeSef js in p.Sefovi)
+                {
+                    JeSefView jsv = new JeSefView(js);
+                    jsv.Park = null;
+                    park.Sefovi.Add(jsv);
+                }
+
+                park.Objekti = p.Objekti.Select(x => new ObjekatView(x)).ToList();
+
+                s.Close();
+
+                return park;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static List<ParkView> VratiParkove()
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Park> parkovi = s.QueryOver<Park>()
+                                       .OrderBy(x => x.Id).Asc
+                                       .List<Park>();
+
+                List<ParkView> returnValue = new List<ParkView>();
+
+                foreach (Park p in parkovi)
+                {
+                    ParkView park = new ParkView(p);
+
+                    foreach(RadiU ru in p.Radnici)
+                    {
+                        RadiUView ruv = new RadiUView(ru);
+                        ruv.Park = null;
+                        park.Radnici.Add(ruv);
+                    }
+
+                    foreach (JeSef js in p.Sefovi)
+                    {
+                        JeSefView jsv = new JeSefView(js);
+                        jsv.Park = null;
+                        park.Sefovi.Add(jsv);
+                    }
+
+                    park.Objekti = p.Objekti.Select(x => new ObjekatView(x)).ToList();
+                    returnValue.Add(park);
                 }
 
                 s.Close();

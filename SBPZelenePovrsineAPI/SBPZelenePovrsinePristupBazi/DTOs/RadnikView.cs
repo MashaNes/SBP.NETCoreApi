@@ -27,6 +27,8 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
 
         public RadnikView(Radnik radnik)
         {
+            Parkovi = new List<RadiUView>();
+            SefParkova = new List<JeSefView>();
             BrRadneKnjizice = radnik.BrRadneKnjizice;
             MBr = radnik.MBr;
             Ime = radnik.Ime;
