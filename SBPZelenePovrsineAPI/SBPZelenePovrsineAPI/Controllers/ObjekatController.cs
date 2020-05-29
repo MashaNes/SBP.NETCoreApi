@@ -143,6 +143,23 @@ namespace SBPZelenePovrsineAPI.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("PromeniKlupu")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ChangeKlupa([FromBody]KlupaView k)
+        {
+            try
+            {
+                DataProvider.IzmeniKlupu(k);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
         [HttpDelete]
         [Route("IzbrisiKlupu/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -218,6 +235,23 @@ namespace SBPZelenePovrsineAPI.Controllers
             try
             {
                 DataProvider.DodajFontanuUPark(f, parkID);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPut]
+        [Route("PromeniFontanu")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ChangeFontana([FromBody]FontanaView f)
+        {
+            try
+            {
+                DataProvider.IzmeniFontanu(f);
                 return Ok();
             }
             catch (Exception ex)
@@ -309,6 +343,23 @@ namespace SBPZelenePovrsineAPI.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("PromeniSvetiljku")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ChangeSvetiljka([FromBody]SvetiljkaView s)
+        {
+            try
+            {
+                DataProvider.IzmeniSvetiljku(s);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
         [HttpDelete]
         [Route("IzbrisiSvetiljku/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -318,6 +369,106 @@ namespace SBPZelenePovrsineAPI.Controllers
             try
             {
                 DataProvider.ObrisiSvetiljku(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        #endregion
+
+        #region Igralista
+
+        [HttpGet]
+        [Route("PreuzmiIgralista")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetIgralista()
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiIgralista());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("PreuzmiIgralista/{parkID}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetIgralista(int parkID)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiIgralistaIzParka(parkID));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("PreuzmiIgraliste/{id}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetIgraliste(int id)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiIgraliste(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPost]
+        [Route("DodajIgraliste/{parkID}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddIgraliste([FromBody]IgralisteView i, int parkID)
+        {
+            try
+            {
+                DataProvider.DodajIgraliste(i, parkID);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPut]
+        [Route("PromeniIgraliste")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ChangeIgraliste([FromBody]IgralisteView i)
+        {
+            try
+            {
+                DataProvider.IzmeniIgraliste(i);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpDelete]
+        [Route("IzbrisiIgraliste/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult DeleteIgraliste(int id)
+        {
+            try
+            {
+                DataProvider.ObrisiIgraliste(id);
                 return Ok();
             }
             catch (Exception ex)

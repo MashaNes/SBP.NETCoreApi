@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "9c83f77d-4957-417f-9584-48cf68087ae0",
-		"name": "SBPZelenePovrsine copy",
+		"name": "SBPZelenePovrsine",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -517,7 +517,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:44332/Objekat/PreuzmiObjekte/3",
+					"raw": "https://localhost:44332/Objekat/PreuzmiObjekte",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -525,8 +525,7 @@
 					"port": "44332",
 					"path": [
 						"Objekat",
-						"PreuzmiObjekte",
-						"3"
+						"PreuzmiObjekte"
 					]
 				}
 			},
@@ -672,6 +671,36 @@
 			"response": []
 		},
 		{
+			"name": "ChangeKlupa",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 3,\r\n  \"id\": 3\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniKlupu",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniKlupu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "DeleteKlupa",
 			"request": {
 				"method": "DELETE",
@@ -784,6 +813,36 @@
 			"response": []
 		},
 		{
+			"name": "ChangeFontana",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 2,\r\n  \"id\": 2\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniFontanu",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniFontanu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "DeleteFontana",
 			"request": {
 				"method": "DELETE",
@@ -884,6 +943,36 @@
 			"response": []
 		},
 		{
+			"name": "ChangeSvetiljka",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 6,\r\n  \"id\": 4\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniSvetiljku",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniSvetiljku"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "DeleteSvetiljka",
 			"request": {
 				"method": "DELETE",
@@ -899,6 +988,130 @@
 						"Objekat",
 						"IzbrisiSvetiljku",
 						"64"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetIgralista",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiIgralista/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiIgralista",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetIgraliste",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiIgraliste/65",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiIgraliste",
+						"65"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIgraliste",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"brojIgracaka\": 15,\r\n  \"starostDeceOd\": 4,\r\n  \"starostDeceDo\": 10,\r\n  \"pesak\": \"Da\",\r\n  \"redniBroj\":7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajIgraliste/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajIgraliste",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeIgraliste",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 65,\r\n  \"brojIgracaka\": 16,\r\n  \"starostDeceOd\": 2,\r\n  \"starostDeceDo\": 12,\r\n  \"pesak\": \"Ne\",\r\n  \"redniBroj\":8\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniIgraliste",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniIgraliste"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteIgraliste",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiIgraliste/65",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiIgraliste",
+						"65"
 					]
 				}
 			},

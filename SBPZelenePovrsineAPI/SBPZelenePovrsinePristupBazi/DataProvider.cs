@@ -781,6 +781,27 @@ namespace SBPZelenePovrsinePristupBazi
             }
         }
 
+        public static void IzmeniKlupu(KlupaView klupa)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Klupa k = s.Get<Klupa>(klupa.Id);
+
+                k.RedniBroj = klupa.RedniBroj;
+
+                s.SaveOrUpdate(k);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
         public static KlupaView VratiKlupu(int id)
         {
             try
@@ -896,6 +917,27 @@ namespace SBPZelenePovrsinePristupBazi
                 p.Objekti.Add(fontana);
 
                 s.Update(p);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void IzmeniFontanu(FontanaView fontana)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Fontana f = s.Get<Fontana>(fontana.Id);
+
+                f.RedniBroj = fontana.RedniBroj;
+
+                s.SaveOrUpdate(f);
                 s.Flush();
 
                 s.Close();
@@ -1033,6 +1075,27 @@ namespace SBPZelenePovrsinePristupBazi
             }
         }
 
+        public static void IzmeniSvetiljku(SvetiljkaView svetiljka)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Svetiljka sv = s.Get<Svetiljka>(svetiljka.Id);
+
+                sv.RedniBroj = svetiljka.RedniBroj;
+
+                s.SaveOrUpdate(sv);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
         public static SvetiljkaView VratiSvetiljku(int id)
         {
             try
@@ -1099,6 +1162,164 @@ namespace SBPZelenePovrsinePristupBazi
                 {
                     SvetiljkaView svetiljka = new SvetiljkaView(sv);
                     returnValue.Add(svetiljka);
+                }
+
+                s.Close();
+
+                return returnValue;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Igralista
+
+        public static void ObrisiIgraliste(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Igraliste i = s.Get<Igraliste>(id);
+
+                s.Delete(i);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void DodajIgraliste(IgralisteView i, int parkID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                
+                Igraliste igraliste = new Igraliste();
+                
+                igraliste.StarostDeceOd = i.StarostDeceOd;
+                igraliste.StarostDeceDo = i.StarostDeceDo;
+                igraliste.Pesak = i.Pesak;
+                igraliste.BrojIgracaka = i.BrojIgracaka;
+                igraliste.RedniBroj = i.RedniBroj;
+
+                Park p = s.Get<Park>(parkID);
+                igraliste.Park = p;
+                p.Objekti.Add(igraliste);
+
+                s.Update(p);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void IzmeniIgraliste(IgralisteView igraliste)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Igraliste i = s.Get<Igraliste>(igraliste.Id);
+                Console.WriteLine(igraliste.Id);
+
+                i.StarostDeceOd = igraliste.StarostDeceOd;
+                i.StarostDeceDo = igraliste.StarostDeceDo;
+                i.Pesak = igraliste.Pesak;
+                i.BrojIgracaka = igraliste.BrojIgracaka;
+                i.RedniBroj = igraliste.RedniBroj;
+
+                s.SaveOrUpdate(i);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static IgralisteView VratiIgraliste(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Igraliste i = s.Get<Igraliste>(id);
+
+                IgralisteView svetiljka = new IgralisteView(i);
+                svetiljka.Park = new ParkView(i.Park);
+
+                s.Close();
+
+                return svetiljka;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static List<IgralisteView> VratiIgralista()
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Igraliste> igralista = s.QueryOver<Igraliste>()
+                                              .OrderBy(x => x.Id).Asc
+                                              .List<Igraliste>();
+
+                List<IgralisteView> returnValue = new List<IgralisteView>();
+
+                foreach (Igraliste i in igralista)
+                {
+                    IgralisteView igraliste = new IgralisteView(i);
+                    igraliste.Park = new ParkView(i.Park);
+                    returnValue.Add(igraliste);
+                }
+
+                s.Close();
+
+                return returnValue;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static List<IgralisteView> VratiIgralistaIzParka(int parkID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Igraliste> igralista = s.QueryOver<Igraliste>()
+                                              .Where(x => x.Park.Id == parkID)
+                                              .OrderBy(x => x.RedniBroj).Asc
+                                              .List<Igraliste>();
+
+                List<IgralisteView> returnValue = new List<IgralisteView>();
+
+                foreach (Igraliste i in igralista)
+                {
+                    IgralisteView igraliste = new IgralisteView(i);
+                    returnValue.Add(igraliste);
                 }
 
                 s.Close();

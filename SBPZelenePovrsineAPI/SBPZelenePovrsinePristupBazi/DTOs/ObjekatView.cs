@@ -7,7 +7,7 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
 {
     public class ObjekatView
     {
-        public int Id { get; protected set; }
+        public int Id { get; set; }
         public int RedniBroj { get; set; }
 
         public ParkView Park { get; set; }
