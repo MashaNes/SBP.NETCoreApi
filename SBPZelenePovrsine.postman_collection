@@ -403,7 +403,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiPark/48",
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiPark/3",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -412,7 +412,7 @@
 					"path": [
 						"ZelenaPovrsina",
 						"PreuzmiPark",
-						"48"
+						"3"
 					]
 				}
 			},
@@ -500,6 +500,405 @@
 						"ZelenaPovrsina",
 						"IzbrisiPark",
 						"50"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetObjekti",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiObjekte/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiObjekte",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetObjekat",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiObjekat/13",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiObjekat",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteObjekat",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiObjekat/61",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiObjekat",
+						"61"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetKlupe",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiKlupe/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiKlupe",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetKlupa",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiKlupu/9",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiKlupu",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddKlupaToPark",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajKlupuUPark/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajKlupuUPark",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteKlupa",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiKlupu/62",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiKlupu",
+						"62"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFontane",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiFontane/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiFontane",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFontana",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiFontanu/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiFontanu",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddFontanaToPark",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajFontanuUPark/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajFontanuUPark",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteFontana",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiFontanu/63",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiFontanu",
+						"63"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSvetiljke",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSvetiljke/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSvetiljke",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSvetiljka",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSvetiljku/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSvetiljku",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddSvetiljkaToPark",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajSvetiljkuUPark/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajSvetiljkuUPark",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteSvetiljka",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiSvetiljku/64",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiSvetiljku",
+						"64"
 					]
 				}
 			},

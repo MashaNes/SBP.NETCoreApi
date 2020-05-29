@@ -12,9 +12,12 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
 
         public ParkView Park { get; set; }
 
+        public String TipObjekta { get; protected set; }
+        public virtual String Detalji { get; protected set; }
+
         public ObjekatView()
         {
-
+            Detalji = "/";
         }
 
         public ObjekatView(Objekat o)
@@ -28,12 +31,12 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
     {
         public KlupaView()
         {
-
+            TipObjekta = "Klupa";
         }
 
         public KlupaView(Klupa k) : base(k)
         {
-
+            TipObjekta = "Klupa";
         }
     }
 
@@ -41,12 +44,12 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
     {
         public FontanaView()
         {
-
+            TipObjekta = "Fontana";
         }
 
         public FontanaView(Fontana f) : base(f)
         {
-
+            TipObjekta = "Fontana";
         }
     }
 
@@ -54,12 +57,12 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
     {
         public SvetiljkaView()
         {
-
+            TipObjekta = "Svetiljka";
         }
 
         public SvetiljkaView(Svetiljka s) : base(s)
         {
-
+            TipObjekta = "Svetiljka";
         }
     }
 
@@ -70,13 +73,26 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
         public int StarostDeceDo { get; set; }
         public String Pesak { get; set; }
 
+        public override string Detalji 
+        { 
+            get 
+            {
+                String rez = "Za decu od " + StarostDeceOd + " do " + StarostDeceDo + " godina. ";
+                rez += (Pesak == "Da" ? "Ima pesak. " : "Nema pesak. ");
+                rez += (BrojIgracaka == null ? "" : "Broj igračaka: " + BrojIgracaka);
+                return rez;
+            } 
+            protected set => base.Detalji = value; 
+        }
+
         public IgralisteView()
         {
-
+            TipObjekta = "Igralište";
         }
 
         public IgralisteView(Igraliste i) : base(i)
         {
+            TipObjekta = "Igralište";
             BrojIgracaka = i.BrojIgracaka;
             StarostDeceOd = i.StarostDeceOd;
             StarostDeceDo = i.StarostDeceDo;
@@ -90,12 +106,14 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
 
         public SpomenikView()
         {
-
+            TipObjekta = "Spomenik";
+            Detalji = "Pod zaštitom države.";
         }
 
         public SpomenikView(Spomenik s) : base(s)
         {
-
+            TipObjekta = "Spomenik";
+            Detalji = "Pod zaštitom države.";
         }
     }
 
@@ -105,12 +123,14 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
 
         public SkulpturaView()
         {
-
+            TipObjekta = "Skulptura";
+            Detalji = "Pod zaštitom države.";
         }
 
         public SkulpturaView(Skulptura s) : base(s)
         {
-
+            TipObjekta = "Skulptura";
+            Detalji = "Pod zaštitom države.";
         }
     }
 
@@ -124,13 +144,29 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
 
         public ZasticenView Zasticen { get; set; }
 
+        public override string Detalji
+        {
+            get
+            {
+                String rez = "Vrsta drveta: " + Vrsta + ". ";
+                rez += (ObimDebla == null ? "" : "Obim debla: " + ObimDebla + "m. ");
+                rez += (VisinaKrosnje == null ? "" : "Visina krošnje: " + VisinaKrosnje + "m. ");
+                rez += (PovrsinaPokrivanja == null ? "" : "Površina pokrivanja: " + PovrsinaPokrivanja + "m^2. ");
+                rez += (DatumSadnje == null ? "" : "Datum sadnje: " + DatumSadnje.Value.ToShortDateString() + ". ");
+                rez += (Zasticen == null ? "Nije pod zaštitom države." : "Pod zaštitom države.");
+                return rez;
+            }
+            protected set => base.Detalji = value; 
+        }
+
         public DrvoView()
         {
-
+            TipObjekta = "Drvo";
         }
 
         public DrvoView(Drvo d) : base(d)
         {
+            TipObjekta = "Drvo";
             Vrsta = d.Vrsta;
             ObimDebla = d.ObimDebla;
             DatumSadnje = d.DatumSadnje;
