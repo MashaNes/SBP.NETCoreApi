@@ -1234,7 +1234,6 @@ namespace SBPZelenePovrsinePristupBazi
             {
                 ISession s = DataLayer.GetSession();
                 Igraliste i = s.Get<Igraliste>(igraliste.Id);
-                Console.WriteLine(igraliste.Id);
 
                 i.StarostDeceOd = igraliste.StarostDeceOd;
                 i.StarostDeceDo = igraliste.StarostDeceDo;
@@ -1320,6 +1319,494 @@ namespace SBPZelenePovrsinePristupBazi
                 {
                     IgralisteView igraliste = new IgralisteView(i);
                     returnValue.Add(igraliste);
+                }
+
+                s.Close();
+
+                return returnValue;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Spomenici
+
+        public static void ObrisiSpomenik(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Spomenik sp = s.Get<Spomenik>(id);
+
+                s.Delete(sp);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void DodajSpomenik(SpomenikView sp, int parkID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Spomenik spomenik = new Spomenik();
+
+                spomenik.RedniBroj = sp.RedniBroj;
+                spomenik.Zasticen = new Zasticen();
+                spomenik.Zasticen.DatumStavljanja = sp.Zasticen.DatumStavljanja;
+                spomenik.Zasticen.Institucija = sp.Zasticen.Institucija;
+                spomenik.Zasticen.NovcanaNaknada = sp.Zasticen.NovcanaNaknada;
+                spomenik.Zasticen.Opis = sp.Zasticen.Opis;
+
+                Park p = s.Get<Park>(parkID);
+                spomenik.Park = p;
+                p.Objekti.Add(spomenik);
+
+                s.Update(p);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void IzmeniSpomenik(SpomenikView spomenik)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Spomenik sp = s.Get<Spomenik>(spomenik.Id);
+
+                sp.RedniBroj = spomenik.RedniBroj;
+
+                s.SaveOrUpdate(sp);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static SpomenikView VratiSpomenik(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Spomenik sp = s.Get<Spomenik>(id);
+
+                SpomenikView spomenik = new SpomenikView(sp);
+                spomenik.Park = new ParkView(sp.Park);
+                spomenik.Zasticen = new ZasticenView(sp.Zasticen);
+
+                s.Close();
+
+                return spomenik;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static List<SpomenikView> VratiSpomenike()
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Spomenik> spomenici = s.QueryOver<Spomenik>()
+                                             .OrderBy(x => x.Id).Asc
+                                             .List<Spomenik>();
+
+                List<SpomenikView> returnValue = new List<SpomenikView>();
+
+                foreach (Spomenik sp in spomenici)
+                {
+                    SpomenikView spomenik = new SpomenikView(sp);
+                    spomenik.Park = new ParkView(sp.Park);
+                    spomenik.Zasticen = new ZasticenView(sp.Zasticen);
+                    returnValue.Add(spomenik);
+                }
+
+                s.Close();
+
+                return returnValue;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static List<SpomenikView> VratiSpomenikeIzParka(int parkID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Spomenik> spomenici = s.QueryOver<Spomenik>()
+                                             .Where(x => x.Park.Id == parkID)
+                                             .OrderBy(x => x.RedniBroj).Asc
+                                             .List<Spomenik>();
+
+                List<SpomenikView> returnValue = new List<SpomenikView>();
+
+                foreach (Spomenik sp in spomenici)
+                {
+                    SpomenikView spomenik = new SpomenikView(sp);
+                    spomenik.Zasticen = new ZasticenView(sp.Zasticen);
+                    returnValue.Add(spomenik);
+                }
+
+                s.Close();
+
+                return returnValue;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Skulpture
+
+        public static void ObrisiSkulpturu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Skulptura sp = s.Get<Skulptura>(id);
+
+                s.Delete(sp);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void DodajSkulpturu(SkulpturaView sk, int parkID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Skulptura skulptura = new Skulptura();
+
+                skulptura.RedniBroj = sk.RedniBroj;
+                skulptura.Zasticen = new Zasticen();
+                skulptura.Zasticen.DatumStavljanja = sk.Zasticen.DatumStavljanja;
+                skulptura.Zasticen.Institucija = sk.Zasticen.Institucija;
+                skulptura.Zasticen.NovcanaNaknada = sk.Zasticen.NovcanaNaknada;
+                skulptura.Zasticen.Opis = sk.Zasticen.Opis;
+
+                Park p = s.Get<Park>(parkID);
+                skulptura.Park = p;
+                p.Objekti.Add(skulptura);
+
+                s.Update(p);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void IzmeniSkulpturu(SkulpturaView skulptura)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Skulptura sk = s.Get<Skulptura>(skulptura.Id);
+
+                sk.RedniBroj = skulptura.RedniBroj;
+
+                s.SaveOrUpdate(sk);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static SkulpturaView VratiSkulpturu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Skulptura sk = s.Get<Skulptura>(id);
+
+                SkulpturaView skulptura = new SkulpturaView(sk);
+                skulptura.Park = new ParkView(sk.Park);
+                skulptura.Zasticen = new ZasticenView(sk.Zasticen);
+
+                s.Close();
+
+                return skulptura;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static List<SkulpturaView> VratiSkulpture()
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Skulptura> skulpture = s.QueryOver<Skulptura>()
+                                              .OrderBy(x => x.Id).Asc
+                                              .List<Skulptura>();
+
+                List<SkulpturaView> returnValue = new List<SkulpturaView>();
+
+                foreach (Skulptura sk in skulpture)
+                {
+                    SkulpturaView skulptura = new SkulpturaView(sk);
+                    skulptura.Park = new ParkView(sk.Park);
+                    skulptura.Zasticen = new ZasticenView(sk.Zasticen);
+                    returnValue.Add(skulptura);
+                }
+
+                s.Close();
+
+                return returnValue;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static List<SkulpturaView> VratiSkulptureIzParka(int parkID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Skulptura> skulpture = s.QueryOver<Skulptura>()
+                                              .Where(x => x.Park.Id == parkID)
+                                              .OrderBy(x => x.RedniBroj).Asc
+                                              .List<Skulptura>();
+
+                List<SkulpturaView> returnValue = new List<SkulpturaView>();
+
+                foreach (Skulptura sk in skulpture)
+                {
+                    SkulpturaView skulptura = new SkulpturaView(sk);
+                    skulptura.Zasticen = new ZasticenView(sk.Zasticen);
+                    returnValue.Add(skulptura);
+                }
+
+                s.Close();
+
+                return returnValue;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region Drvece
+
+        public static void ObrisiDrvo(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Drvo d = s.Get<Drvo>(id);
+
+                s.Delete(d);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void DodajDrvo(DrvoView d, int parkID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Drvo drvo = new Drvo();
+
+                drvo.RedniBroj = d.RedniBroj;
+                drvo.Vrsta = d.Vrsta;
+                drvo.ObimDebla = d.ObimDebla;
+                drvo.DatumSadnje = d.DatumSadnje;
+                drvo.VisinaKrosnje = d.VisinaKrosnje;
+                drvo.PovrsinaPokrivanja = d.PovrsinaPokrivanja;
+
+                if (d.Zasticen != null)
+                {
+                    drvo.Zasticen = new Zasticen();
+                    drvo.Zasticen.DatumStavljanja = d.Zasticen.DatumStavljanja;
+                    drvo.Zasticen.Institucija = d.Zasticen.Institucija;
+                    drvo.Zasticen.NovcanaNaknada = d.Zasticen.NovcanaNaknada;
+                    drvo.Zasticen.Opis = d.Zasticen.Opis;
+                }
+
+                Park p = s.Get<Park>(parkID);
+                drvo.Park = p;
+                p.Objekti.Add(drvo);
+
+                s.Update(p);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static void IzmeniDrvo(DrvoView d)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Drvo drvo = s.Get<Drvo>(d.Id);
+
+                drvo.RedniBroj = d.RedniBroj;
+                drvo.Vrsta = d.Vrsta;
+                drvo.ObimDebla = d.ObimDebla;
+                drvo.DatumSadnje = d.DatumSadnje;
+                drvo.VisinaKrosnje = d.VisinaKrosnje;
+                drvo.PovrsinaPokrivanja = d.PovrsinaPokrivanja;
+
+                s.SaveOrUpdate(drvo);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static DrvoView VratiDrvo(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Drvo d = s.Get<Drvo>(id);
+
+                DrvoView drvo = new DrvoView(d);
+                drvo.Park = new ParkView(d.Park);
+                if(d.Zasticen != null)
+                    drvo.Zasticen = new ZasticenView(d.Zasticen);
+
+                s.Close();
+
+                return drvo;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static List<DrvoView> VratiDrvece()
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Drvo> drvece = s.QueryOver<Drvo>()
+                                      .OrderBy(x => x.Id).Asc
+                                      .List<Drvo>();
+
+                List<DrvoView> returnValue = new List<DrvoView>();
+
+                foreach (Drvo d in drvece)
+                {
+                    DrvoView drvo = new DrvoView(d);
+                    drvo.Park = new ParkView(d.Park);
+                    if(d.Zasticen != null)
+                        drvo.Zasticen = new ZasticenView(d.Zasticen);
+                    returnValue.Add(drvo);
+                }
+
+                s.Close();
+
+                return returnValue;
+            }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+                throw;
+            }
+        }
+
+        public static List<DrvoView> VratiDrveceIzParka(int parkID)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Drvo> drvece = s.QueryOver<Drvo>()
+                                      .Where(x => x.Park.Id == parkID)
+                                      .OrderBy(x => x.RedniBroj).Asc
+                                      .List<Drvo>();
+
+                List<DrvoView> returnValue = new List<DrvoView>();
+
+                foreach (Drvo d in drvece)
+                {
+                    DrvoView drvo = new DrvoView(d);
+                    if(d.Zasticen != null)
+                        drvo.Zasticen = new ZasticenView(d.Zasticen);
+                    returnValue.Add(drvo);
                 }
 
                 s.Close();

@@ -478,5 +478,305 @@ namespace SBPZelenePovrsineAPI.Controllers
         }
 
         #endregion
+
+        #region Spomenici
+
+        [HttpGet]
+        [Route("PreuzmiSpomenike")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetSpomenici()
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiSpomenike());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("PreuzmiSpomenike/{parkID}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetSpomenici(int parkID)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiSpomenikeIzParka(parkID));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("PreuzmiSpomenik/{id}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetSpomenik(int id)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiSpomenik(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPost]
+        [Route("DodajSpomenik/{parkID}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddSpomenik([FromBody]SpomenikView s, int parkID)
+        {
+            try
+            {
+                DataProvider.DodajSpomenik(s, parkID);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPut]
+        [Route("PromeniSpomenik")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ChangeSpomenik([FromBody]SpomenikView s)
+        {
+            try
+            {
+                DataProvider.IzmeniSpomenik(s);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpDelete]
+        [Route("IzbrisiSpomenik/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult DeleteSpomenik(int id)
+        {
+            try
+            {
+                DataProvider.ObrisiSpomenik(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        #endregion
+
+        #region Skulpture
+
+        [HttpGet]
+        [Route("PreuzmiSkulpture")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetSkulpture()
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiSkulpture());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("PreuzmiSkulpture/{parkID}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetSkulpture(int parkID)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiSkulptureIzParka(parkID));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("PreuzmiSkulpturu/{id}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetSkulptura(int id)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiSkulpturu(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPost]
+        [Route("DodajSkulpturu/{parkID}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddSkulptura([FromBody]SkulpturaView s, int parkID)
+        {
+            try
+            {
+                DataProvider.DodajSkulpturu(s, parkID);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPut]
+        [Route("PromeniSkulpturu")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ChangeSkulptura([FromBody]SkulpturaView s)
+        {
+            try
+            {
+                DataProvider.IzmeniSkulpturu(s);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpDelete]
+        [Route("IzbrisiSkulpturu/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult DeleteSkulptura(int id)
+        {
+            try
+            {
+                DataProvider.ObrisiSkulpturu(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        #endregion
+
+        #region Drvece
+
+        [HttpGet]
+        [Route("PreuzmiDrvece")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetDrvece()
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiDrvece());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("PreuzmiDrvece/{parkID}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetDrvece(int parkID)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiDrveceIzParka(parkID));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
+        [Route("PreuzmiDrvo/{id}")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetDrvo(int id)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiDrvo(id));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPost]
+        [Route("DodajDrvo/{parkID}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult AddDrvo([FromBody]DrvoView d, int parkID)
+        {
+            try
+            {
+                DataProvider.DodajDrvo(d, parkID);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPut]
+        [Route("PromeniDrvo")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult ChangeDrvo([FromBody]DrvoView d)
+        {
+            try
+            {
+                DataProvider.IzmeniDrvo(d);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpDelete]
+        [Route("IzbrisiDrvo/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult DeleteDrvo(int id)
+        {
+            try
+            {
+                DataProvider.ObrisiDrvo(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        #endregion
     }
 }

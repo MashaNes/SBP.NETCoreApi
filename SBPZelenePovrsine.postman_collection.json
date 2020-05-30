@@ -1118,6 +1118,378 @@
 			"response": []
 		},
 		{
+			"name": "GetSpomenici",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSpomenike/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSpomenike",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSpomenik",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSpomenik/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSpomenik",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateSpomenik",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zasticen\": {\r\n    \"opis\": \"Spomenik predstavlja probu\",\r\n    \"novcanaNaknada\": 6000,\r\n    \"institucija\": \"Zavod za zaštitu državne svojine\",\r\n    \"datumStavljanja\": \"2015-12-17T00:00:00\"\r\n  },\r\n  \"redniBroj\": 7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajSpomenik/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajSpomenik",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeSpomenik",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 66,\r\n  \"redniBroj\":8\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniSpomenik",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniSpomenik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteSpomenik",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiSpomenik/66",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiSpomenik",
+						"66"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSkulpture",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSkulpture/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSkulpture",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSkulptura",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSkulpturu/52",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSkulpturu",
+						"52"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateSkulptura",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zasticen\": {\r\n    \"opis\": \"Skulptura predstavlja probu\",\r\n    \"novcanaNaknada\":76000,\r\n    \"institucija\": \"Zavod za zaštitu državne svojine\",\r\n    \"datumStavljanja\": \"2015-12-17T00:00:00\"\r\n  },\r\n  \"redniBroj\": 7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajSkulpturu/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajSkulpturu",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeSkulptura",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 67,\r\n  \"redniBroj\":8\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniSkulpturu",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniSkulpturu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteSkulptura",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiSkulpturu/67",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiSkulpturu",
+						"67"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDrvece",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiDrvece/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiDrvece",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDrvo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiDrvo/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiDrvo",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateDrvo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zasticen\": {\r\n    \"opis\": \"Drvo predstavlja probu\",\r\n    \"novcanaNaknada\":76000,\r\n    \"institucija\": \"Zavod za zaštitu državne svojine\",\r\n    \"datumStavljanja\": \"2015-12-17T00:00:00\"\r\n  },\r\n  \"redniBroj\": 7,\r\n  \"vrsta\": \"Lipa\",\r\n  \"obimDebla\": 3.15,\r\n  \"datumSadnje\": \"2013-03-05T00:00:00\",\r\n  \"visinaKrosnje\": 12,\r\n  \"povrsinaPokrivanja\": 7.78\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajDrvo/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajDrvo",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeDrvo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 72,\r\n  \"redniBroj\":9,\r\n  \"vrsta\": \"proba vrsta\",\r\n  \"obimDebla\": 5.15,\r\n  \"datumSadnje\": \"2015-06-05T00:00:00\",\r\n  \"visinaKrosnje\": 13,\r\n  \"povrsinaPokrivanja\": 8.78\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniDrvo",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniDrvo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteDrvo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiDrvo/72",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiDrvo",
+						"72"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "GetRadnici",
 			"request": {
 				"method": "GET",
