@@ -7,7 +7,7 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
 {
     public class RadiUView
     {
-        public int Id { get; protected set; }
+        public int Id { get; set; }
         public DateTime DatumOd { get; set; }
         public DateTime? DatumDo { get; set; }
 

@@ -1998,7 +1998,583 @@ namespace SBPZelenePovrsinePristupBazi
                 throw;
             }
         }
+
+        public static void ObrisiRadnikaOdrzavanjeZelenila(string brKnjizice)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadnikOdrzavanjeZelenila radnik = s.Get<RadnikOdrzavanjeZelenila>(brKnjizice);
+                s.Delete(radnik);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+
+
         #endregion
+
+        #region RadniciOdrzavanjeHigijene
+
+        public static List<RadnikOdrzavanjeHigijeneView> VratiRadnikeOdrzavanjeHigijene()
+        {
+            List<RadnikOdrzavanjeHigijeneView> returnValue = new List<RadnikOdrzavanjeHigijeneView>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<RadnikOdrzavanjeHigijene> radnici = s.Query<RadnikOdrzavanjeHigijene>().ToList();
+
+                foreach (RadnikOdrzavanjeHigijene r in radnici)
+                {
+                    RadnikOdrzavanjeHigijeneView rv = new RadnikOdrzavanjeHigijeneView(r);
+                    returnValue.Add(rv);
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return returnValue;
+        }
+
+        public static RadnikOdrzavanjeHigijeneView VratiOdredjenogRadnikaOdrzavanjeHigijene(string brKnjizice)
+        {
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ISQLQuery sqlQuery = s.CreateSQLQuery("SELECT * FROM RADNIK WHERE BR_RADNE_KNJIZICE = ? AND TIP_ANGAZOVANJA = ?");
+                sqlQuery.SetParameter(0, brKnjizice);
+                sqlQuery.SetParameter(1, "Održavanje higijene");
+                sqlQuery.AddEntity(typeof(RadnikOdrzavanjeHigijene));
+
+                RadnikOdrzavanjeHigijene radnik = sqlQuery.UniqueResult<RadnikOdrzavanjeHigijene>();
+
+                RadnikOdrzavanjeHigijeneView radnikView = new RadnikOdrzavanjeHigijeneView(radnik);
+
+                s.Close();
+
+                return radnikView;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void SacuvajRadnikaOdrzavanjeHigijene(RadnikOdrzavanjeHigijeneView radnikView)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadnikOdrzavanjeHigijene radnik = new RadnikOdrzavanjeHigijene();
+                radnik.BrRadneKnjizice = radnikView.BrRadneKnjizice;
+                radnik.MBr = radnikView.MBr;
+                radnik.Ime = radnikView.Ime;
+                radnik.ImeRoditelja = radnikView.ImeRoditelja;
+                radnik.Prezime = radnikView.Prezime;
+                radnik.Adresa = radnikView.Adresa;
+                radnik.DatumRodjenja = radnikView.DatumRodjenja;
+                radnik.StrucnaSprema = radnikView.StrucnaSprema;
+
+                s.Save(radnik);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void IzmeniRadnikaOdrzavanjeHigijene(RadnikOdrzavanjeHigijeneView radnikView)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadnikOdrzavanjeHigijene radnik = s.Load<RadnikOdrzavanjeHigijene>(radnikView.BrRadneKnjizice);
+                radnik.MBr = radnikView.MBr;
+                radnik.Ime = radnikView.Ime;
+                radnik.ImeRoditelja = radnikView.ImeRoditelja;
+                radnik.Prezime = radnikView.Prezime;
+                radnik.Adresa = radnikView.Adresa;
+                radnik.DatumRodjenja = radnikView.DatumRodjenja;
+                radnik.StrucnaSprema = radnikView.StrucnaSprema;
+
+                s.SaveOrUpdate(radnik);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void ObrisiRadnikaOdrzavanjeHigijene(string brKnjizice)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadnikOdrzavanjeHigijene radnik = s.Get<RadnikOdrzavanjeHigijene>(brKnjizice);
+                s.Delete(radnik);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region RadniciOdrzavanjeObjekata
+
+        public static List<RadnikOdrzavanjeObjekataUParkuView> VratiRadnikeOdrzavanjeObjekata()
+        {
+            List<RadnikOdrzavanjeObjekataUParkuView> returnValue = new List<RadnikOdrzavanjeObjekataUParkuView>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<RadnikOdrzavanjeObjekataUParku> radnici = s.Query<RadnikOdrzavanjeObjekataUParku>().ToList();
+
+                foreach (RadnikOdrzavanjeObjekataUParku r in radnici)
+                {
+                    RadnikOdrzavanjeObjekataUParkuView rv = new RadnikOdrzavanjeObjekataUParkuView(r);
+                    returnValue.Add(rv);
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return returnValue;
+        }
+
+        public static RadnikOdrzavanjeObjekataUParkuView VratiOdredjenogRadnikaOdrzavanjeObjekata(string brKnjizice)
+        {
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                ISQLQuery sqlQuery = s.CreateSQLQuery("SELECT * FROM RADNIK WHERE BR_RADNE_KNJIZICE = ? AND TIP_ANGAZOVANJA = ?");
+                sqlQuery.SetParameter(0, brKnjizice);
+                sqlQuery.SetParameter(1, "Održavanje objekata u parku");
+                sqlQuery.AddEntity(typeof(RadnikOdrzavanjeObjekataUParku));
+
+                RadnikOdrzavanjeObjekataUParku radnik = sqlQuery.UniqueResult<RadnikOdrzavanjeObjekataUParku>();
+
+                RadnikOdrzavanjeObjekataUParkuView radnikView = new RadnikOdrzavanjeObjekataUParkuView(radnik);
+
+                s.Close();
+
+                return radnikView;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void IzmeniRadnikaOdrzavanjeObjekata(RadnikOdrzavanjeObjekataUParkuView radnikView)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadnikOdrzavanjeObjekataUParku radnik = s.Load<RadnikOdrzavanjeObjekataUParku>(radnikView.BrRadneKnjizice);
+                radnik.MBr = radnikView.MBr;
+                radnik.Ime = radnikView.Ime;
+                radnik.ImeRoditelja = radnikView.ImeRoditelja;
+                radnik.Prezime = radnikView.Prezime;
+                radnik.Adresa = radnikView.Adresa;
+                radnik.DatumRodjenja = radnikView.DatumRodjenja;
+                radnik.StrucnaSprema = radnikView.StrucnaSprema;
+
+                s.SaveOrUpdate(radnik);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void ObrisiRadnikaOdrzavanjeObjekata(string brKnjizice)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadnikOdrzavanjeObjekataUParku radnik = s.Get<RadnikOdrzavanjeObjekataUParku>(brKnjizice);
+                s.Delete(radnik);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void DodajRadnikaOdrzavanjeObjekata(RadiUView radiUView)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                RadnikOdrzavanjeObjekataUParku radnik = new RadnikOdrzavanjeObjekataUParku();
+                radnik.BrRadneKnjizice = radiUView.Radnik.BrRadneKnjizice;
+                radnik.MBr = radiUView.Radnik.MBr;
+                radnik.Ime = radiUView.Radnik.Ime;
+                radnik.ImeRoditelja = radiUView.Radnik.ImeRoditelja;
+                radnik.Prezime = radiUView.Radnik.Prezime;
+                radnik.Adresa = radiUView.Radnik.Adresa;
+                radnik.DatumRodjenja = radiUView.Radnik.DatumRodjenja;
+                radnik.StrucnaSprema = radiUView.Radnik.StrucnaSprema;
+
+                s.Save(radnik);
+                s.Flush();
+
+                Park park = s.Load<Park>(radiUView.Park.Id);
+
+                RadiU radniOdnos = new RadiU();
+                radniOdnos.DatumOd = radiUView.DatumOd;
+                radniOdnos.DatumDo = radiUView.DatumDo;
+                radniOdnos.Park = park;
+                radniOdnos.Radnik = radnik;
+
+                s.Save(radniOdnos);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region RadiU
+
+        public static void DodajRadniOdnos(RadiUView radiUView, string brKnjizice, int idParka)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadiU radiU = new RadiU();
+                radiU.DatumOd = radiUView.DatumOd;
+                radiU.DatumDo = radiUView.DatumDo;
+                radiU.Park = s.Load<Park>(idParka);
+                radiU.Radnik = s.Load<Radnik>(brKnjizice);
+
+                s.Save(radiU);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static RadiUView VratiRadniOdnos(int radiUId)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadiU radniOdnos = s.Get<RadiU>(radiUId);
+
+                RadiUView retVal = new RadiUView(radniOdnos);
+
+                s.Close();
+
+                return retVal;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static List<RadiUView> VratiRadneOdnoseRadnika(string brKnjizice)
+        {
+            List<RadiUView> retValue = new List<RadiUView>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                List<RadiU> radniOdnosi = s.Query<RadiU>()
+                                           .Where(r => r.Radnik.BrRadneKnjizice == brKnjizice)
+                                           .ToList();
+
+                foreach (RadiU radniOdnos in radniOdnosi)
+                {
+                    RadiUView radiUView = new RadiUView(radniOdnos);
+                    retValue.Add(radiUView);
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return retValue;
+        }
+
+        public static List<RadiUView> VratiRadneOdnoseIzParka(int idParka)
+        {
+            List<RadiUView> retValue = new List<RadiUView>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                List<RadiU> radniOdnosi = s.Query<RadiU>()
+                                           .Where(r => r.Park.Id == idParka)
+                                           .ToList();
+
+                foreach (RadiU radniOdnos in radniOdnosi)
+                {
+                    RadiUView radiUView = new RadiUView(radniOdnos);
+                    retValue.Add(radiUView);
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return retValue;
+        }
+
+        public static void IzmeniRadniOdnos(RadiUView radiUView)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadiU radniOdnos = s.Get<RadiU>(radiUView.Id);
+                radniOdnos.DatumOd = radiUView.DatumOd;
+                radniOdnos.DatumDo = radiUView.DatumDo;
+
+                s.SaveOrUpdate(radniOdnos);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void IzbrisiRadniOdnos(int radiUId)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                RadiU radniOdnos = s.Get<RadiU>(radiUId);
+
+                s.Delete(radniOdnos);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        #endregion
+
+        #region JeSef
+
+        public static void DodajSefovanje(JeSefView jeSefView, string brKnjizice, int idParka)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                JeSef jeSef = new JeSef();
+                jeSef.DatumOd = jeSefView.DatumOd;
+                jeSef.DatumDo = jeSefView.DatumDo;
+                jeSef.Park = s.Load<Park>(idParka);
+                jeSef.Radnik = s.Load<Radnik>(brKnjizice);
+
+                s.Save(jeSef);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static JeSefView VratiSefovanje(int jeSefId)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                JeSef jeSef = s.Get<JeSef>(jeSefId);
+
+                JeSefView retVal = new JeSefView(jeSef);
+
+                s.Close();
+
+                return retVal;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static List<JeSefView> VratiSefovanjaRadnika(string brKnjizice)
+        {
+            List<JeSefView> retValue = new List<JeSefView>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                List<JeSef> sefovanja = s.Query<JeSef>()
+                                           .Where(js => js.Radnik.BrRadneKnjizice == brKnjizice)
+                                           .ToList();
+
+                foreach (JeSef sefovanje in sefovanja)
+                {
+                    JeSefView jeSefView = new JeSefView(sefovanje);
+                    retValue.Add(jeSefView);
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return retValue;
+        }
+
+        public static List<JeSefView> VratiSefovanjaIzParka(int idParka)
+        {
+            List<JeSefView> retValue = new List<JeSefView>();
+
+            try
+            {
+
+                ISession s = DataLayer.GetSession();
+
+                List<JeSef> sefovanja = s.Query<JeSef>()
+                                           .Where(js => js.Park.Id == idParka)
+                                           .ToList();
+
+                foreach (JeSef sefovanje in sefovanja)
+                {
+                    JeSefView jeSefView = new JeSefView(sefovanje);
+                    retValue.Add(jeSefView);
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return retValue;
+        }
+
+        public static void IzmeniSefovanje(JeSefView jeSefView)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                JeSef sefovanje = s.Get<JeSef>(jeSefView.Id);
+                sefovanje.DatumOd = jeSefView.DatumOd;
+                sefovanje.DatumDo = jeSefView.DatumDo;
+
+                s.SaveOrUpdate(sefovanje);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void IzbrisiSefovanje(int jeSefId)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                JeSef sefovanje = s.Get<JeSef>(jeSefId);
+
+                s.Delete(sefovanje);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        #endregion
+
         #endregion
     }
 }
