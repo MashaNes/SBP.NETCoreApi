@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qTw+i6zSfYB+SyGby2xpW9sgptDCqEFDjyhn3/1EpAzuNMqvyAgpEsk3kpaLkDAbHyUKZdjRHOcWWkzQ42vH1g==",
+  "dgSpecHash": "SXbdAkRdYbvnj55DREN8WR3KEc9qRVI43q31IsY+m/ghU5d0TvoBjJhku2e5myNgeVdkE84T+zelABGZrZM4Og==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PetarTrifunovic\\Desktop\\6. semestar\\Sistemi baza podataka - novo\\Zelene površine - Web API projekat\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj",
+  "projectFilePath": "C:\\Users\\PetarTrifunovic\\Desktop\\6. semestar\\Sistemi baza podataka - novo\\Web API proba\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PetarTrifunovic\\.nuget\\packages\\antlr3.runtime\\3.5.1\\antlr3.runtime.3.5.1.nupkg.sha512",
     "C:\\Users\\PetarTrifunovic\\.nuget\\packages\\fluentnhibernate\\2.1.2\\fluentnhibernate.2.1.2.nupkg.sha512",

@@ -7,12 +7,12 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
 {
     public class ZasticenView
     {
-        public int Id { get; protected set; }
+        public int Id { get; set; }
         public string Opis { get; set; }
         public float NovcanaNaknada { get; set; }
         public string Institucija { get; set; }
         public DateTime DatumStavljanja { get; set; }
-
+        public ObjekatView Objekat { get; set; }
         public ZasticenView() { }
 
         public ZasticenView(Zasticen zasticen)

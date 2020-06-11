@@ -12,6 +12,7 @@ namespace SBPZelenePovrsinePristupBazi.Entiteti
         public virtual int RedniBroj { get; set; }
 
         public virtual Park Park { get; set; }
+        public virtual Zasticen Zasticen { get; set; }
     }
 
     public class Klupa : Objekat
@@ -39,12 +40,12 @@ namespace SBPZelenePovrsinePristupBazi.Entiteti
 
     public class Spomenik : Objekat
     {
-        public virtual Zasticen Zasticen { get; set; }
+        //public virtual Zasticen Zasticen { get; set; }
     }
 
     public class Skulptura : Objekat
     {
-        public virtual Zasticen Zasticen { get; set; }
+        //public virtual Zasticen Zasticen { get; set; }
     }
 
     public class Drvo : Objekat
@@ -55,6 +56,6 @@ namespace SBPZelenePovrsinePristupBazi.Entiteti
         public virtual float? VisinaKrosnje { get; set; }
         public virtual float? PovrsinaPokrivanja { get; set; }
 
-        public virtual Zasticen Zasticen { get; set; }
+        //public virtual Zasticen Zasticen { get; set; }
     }
 }

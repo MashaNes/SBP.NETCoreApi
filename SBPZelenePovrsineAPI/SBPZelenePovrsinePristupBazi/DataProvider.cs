@@ -1838,6 +1838,8 @@ namespace SBPZelenePovrsinePristupBazi
                 foreach (Radnik r in radnici)
                 {
                     RadnikView rv = new RadnikView(r);
+                    rv.Parkovi = VratiRadnikoveParkove(r);
+                    rv.SefParkova = VratiRadnikovaSefovanja(r);
                     returnValue.Add(rv);
                 }
 
@@ -1859,6 +1861,8 @@ namespace SBPZelenePovrsinePristupBazi
 
                 Radnik radnik = s.Get<Radnik>(brKnjizice);
                 RadnikView radnikView = new RadnikView(radnik);
+                radnikView.Parkovi = VratiRadnikoveParkove(radnik);
+                radnikView.SefParkova = VratiRadnikovaSefovanja(radnik);
 
                 s.Close();
 
@@ -1889,6 +1893,30 @@ namespace SBPZelenePovrsinePristupBazi
             }
         }
 
+        public static IList<RadiUView> VratiRadnikoveParkove(Radnik r)
+        {
+            IList<RadiUView> returnValue = new List<RadiUView>();
+            foreach(RadiU ru in r.Parkovi)
+            {
+                RadiUView ruv = new RadiUView(ru);
+                ruv.Radnik = null;
+                returnValue.Add(ruv);
+            }
+            return returnValue;
+        }
+
+        public static IList<JeSefView> VratiRadnikovaSefovanja(Radnik r)
+        {
+            IList<JeSefView> returnValue = new List<JeSefView>();
+            foreach (JeSef js in r.SefParkova)
+            {
+                JeSefView jsv = new JeSefView(js);
+                jsv.Radnik = null;
+                returnValue.Add(jsv);
+            }
+            return returnValue;
+        }
+
         #region RadniciOdrzavanjeZelenila
 
         public static List<RadnikOdrzavanjeZelenilaView> VratiRadnikeOdrzavanjeZelenila()
@@ -1905,6 +1933,8 @@ namespace SBPZelenePovrsinePristupBazi
                 foreach (RadnikOdrzavanjeZelenila r in radnici)
                 {
                     RadnikOdrzavanjeZelenilaView rv = new RadnikOdrzavanjeZelenilaView(r);
+                    rv.Parkovi = VratiRadnikoveParkove(r);
+                    rv.SefParkova = VratiRadnikovaSefovanja(r);
                     returnValue.Add(rv);
                 }
 
@@ -1933,6 +1963,8 @@ namespace SBPZelenePovrsinePristupBazi
                 RadnikOdrzavanjeZelenila radnik = sqlQuery.UniqueResult<RadnikOdrzavanjeZelenila>();
 
                 RadnikOdrzavanjeZelenilaView radnikView = new RadnikOdrzavanjeZelenilaView(radnik);
+                radnikView.Parkovi = VratiRadnikoveParkove(radnik);
+                radnikView.SefParkova = VratiRadnikovaSefovanja(radnik);
 
                 s.Close();
 
@@ -2035,6 +2067,8 @@ namespace SBPZelenePovrsinePristupBazi
                 foreach (RadnikOdrzavanjeHigijene r in radnici)
                 {
                     RadnikOdrzavanjeHigijeneView rv = new RadnikOdrzavanjeHigijeneView(r);
+                    rv.Parkovi = VratiRadnikoveParkove(r);
+                    rv.SefParkova = VratiRadnikovaSefovanja(r);
                     returnValue.Add(rv);
                 }
 
@@ -2063,6 +2097,8 @@ namespace SBPZelenePovrsinePristupBazi
                 RadnikOdrzavanjeHigijene radnik = sqlQuery.UniqueResult<RadnikOdrzavanjeHigijene>();
 
                 RadnikOdrzavanjeHigijeneView radnikView = new RadnikOdrzavanjeHigijeneView(radnik);
+                radnikView.Parkovi = VratiRadnikoveParkove(radnik);
+                radnikView.SefParkova = VratiRadnikovaSefovanja(radnik);
 
                 s.Close();
 
@@ -2163,6 +2199,8 @@ namespace SBPZelenePovrsinePristupBazi
                 foreach (RadnikOdrzavanjeObjekataUParku r in radnici)
                 {
                     RadnikOdrzavanjeObjekataUParkuView rv = new RadnikOdrzavanjeObjekataUParkuView(r);
+                    rv.Parkovi = VratiRadnikoveParkove(r);
+                    rv.SefParkova = VratiRadnikovaSefovanja(r);
                     returnValue.Add(rv);
                 }
 
@@ -2191,6 +2229,8 @@ namespace SBPZelenePovrsinePristupBazi
                 RadnikOdrzavanjeObjekataUParku radnik = sqlQuery.UniqueResult<RadnikOdrzavanjeObjekataUParku>();
 
                 RadnikOdrzavanjeObjekataUParkuView radnikView = new RadnikOdrzavanjeObjekataUParkuView(radnik);
+                radnikView.Parkovi = VratiRadnikoveParkove(radnik);
+                radnikView.SefParkova = VratiRadnikovaSefovanja(radnik);
 
                 s.Close();
 
@@ -2311,6 +2351,32 @@ namespace SBPZelenePovrsinePristupBazi
             }
         }
 
+        public static List<RadiUView> VratiRadneOdnose()
+        {
+            List<RadiUView> retValue = new List<RadiUView>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                List<RadiU> radniOdnosi = s.Query<RadiU>().ToList();
+
+                foreach (RadiU radniOdnos in radniOdnosi)
+                {
+                    RadiUView radiUView = new RadiUView(radniOdnos);
+                    retValue.Add(radiUView);
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return retValue;
+        }
+
         public static RadiUView VratiRadniOdnos(int radiUId)
         {
             try
@@ -2318,7 +2384,6 @@ namespace SBPZelenePovrsinePristupBazi
                 ISession s = DataLayer.GetSession();
 
                 RadiU radniOdnos = s.Get<RadiU>(radiUId);
-
                 RadiUView retVal = new RadiUView(radniOdnos);
 
                 s.Close();
@@ -2455,6 +2520,32 @@ namespace SBPZelenePovrsinePristupBazi
             }
         }
 
+        public static List<JeSefView> VratiSefovanja()
+        {
+            List<JeSefView> retValue = new List<JeSefView>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                List<JeSef> sefovanja = s.Query<JeSef>().ToList();
+
+                foreach (JeSef jeSef in sefovanja)
+                {
+                    JeSefView jeSefView = new JeSefView(jeSef);
+                    retValue.Add(jeSefView);
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return retValue;
+        }
+
         public static JeSefView VratiSefovanje(int jeSefId)
         {
             try
@@ -2574,6 +2665,205 @@ namespace SBPZelenePovrsinePristupBazi
         }
 
         #endregion
+
+        #endregion
+
+        #region Zasticen
+
+        public static List<ZasticenView> VratiZasticeneObjekte()
+        {
+            List<ZasticenView> returnValue = new List<ZasticenView>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                IList<Zasticen> zasticeni = s.QueryOver<Zasticen>().List<Zasticen>();
+
+                foreach (Zasticen z in zasticeni)
+                {
+                    ZasticenView zv = new ZasticenView(z);
+                    if(z.Objekat.GetType() == typeof(Spomenik))
+                    {
+                        Spomenik spomenik = z.Objekat as Spomenik;
+                        zv.Objekat = new SpomenikView(spomenik);
+                    }
+                    else if(z.Objekat.GetType() == typeof(Skulptura))
+                    {
+                        Skulptura skulptura = z.Objekat as Skulptura;
+                        zv.Objekat = new SkulpturaView(skulptura);
+                    }
+                    else if (z.Objekat.GetType() == typeof(Drvo))
+                    {
+                        Drvo drvo = z.Objekat as Drvo;
+                        zv.Objekat = new DrvoView(drvo);
+                    }
+                    zv.Objekat.Park = new ParkView(z.Objekat.Park);
+                    returnValue.Add(zv);
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return returnValue;
+        }
+
+        public static List<ZasticenView> VratiZasticeneObjekteIzParka(int idParka)
+        {
+            List<ZasticenView> returnValue = new List<ZasticenView>();
+
+            try
+            {
+                ISession s = DataLayer.GetSession();
+                Park park = s.Get<Park>(idParka);
+                IList<Zasticen> zasticeni = s.Query<Zasticen>()
+                                             .Where(z => z.Objekat.Park.Naziv == park.Naziv && z.Objekat.Park.Opstina == park.Opstina)
+                                             .ToList<Zasticen>();
+
+                foreach (Zasticen z in zasticeni)
+                {
+                    ZasticenView zv = new ZasticenView(z);
+                    if (z.Objekat.GetType() == typeof(Spomenik))
+                    {
+                        Spomenik spomenik = z.Objekat as Spomenik;
+                        zv.Objekat = new SpomenikView(spomenik);
+                    }
+                    else if (z.Objekat.GetType() == typeof(Skulptura))
+                    {
+                        Skulptura skulptura = z.Objekat as Skulptura;
+                        zv.Objekat = new SkulpturaView(skulptura);
+                    }
+                    else if (z.Objekat.GetType() == typeof(Drvo))
+                    {
+                        Drvo drvo = z.Objekat as Drvo;
+                        zv.Objekat = new DrvoView(drvo);
+                    }
+                    zv.Objekat.Park = new ParkView(z.Objekat.Park);
+                    returnValue.Add(zv);
+                }
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return returnValue;
+        }
+
+        public static ZasticenView VratiZasticenObjekat(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zasticen zasticen = s.Get<Zasticen>(id);
+                ZasticenView zasticenView = new ZasticenView(zasticen);
+                if (zasticen.Objekat.GetType() == typeof(Spomenik))
+                {
+                    Spomenik spomenik = zasticen.Objekat as Spomenik;
+                    zasticenView.Objekat = new SpomenikView(spomenik);
+                }
+                else if (zasticen.Objekat.GetType() == typeof(Skulptura))
+                {
+                    Skulptura skulptura = zasticen.Objekat as Skulptura;
+                    zasticenView.Objekat = new SkulpturaView(skulptura);
+                }
+                else if (zasticen.Objekat.GetType() == typeof(Drvo))
+                {
+                    Drvo drvo = zasticen.Objekat as Drvo;
+                    zasticenView.Objekat = new DrvoView(drvo);
+                }
+                zasticenView.Objekat.Park = new ParkView(zasticen.Objekat.Park);
+
+                s.Close();
+
+                return zasticenView;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void ObrisiZastitu(int id)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zasticen zasticen = s.Get<Zasticen>(id);
+                Objekat objekat = s.Query<Objekat>().Where(o => o.Zasticen.Id == id).Single();
+
+                objekat.Zasticen = null;
+                s.SaveOrUpdate(objekat);
+                s.Flush();
+
+                s.Delete(zasticen);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void DodajZastituObjektu(ZasticenView zasticenView, int idObjekta)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zasticen zasticen = new Zasticen();
+                zasticen.Institucija = zasticenView.Institucija;
+                zasticen.NovcanaNaknada = zasticenView.NovcanaNaknada;
+                zasticen.Opis = zasticenView.Opis;
+                zasticen.DatumStavljanja = zasticenView.DatumStavljanja;
+
+                Objekat objekat = s.Load<Objekat>(idObjekta);
+                objekat.Zasticen = zasticen;
+
+                s.Update(objekat);
+                s.Flush();
+
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
+
+        public static void IzmeniZastitu(ZasticenView zasticenView)
+        {
+            try
+            {
+                ISession s = DataLayer.GetSession();
+
+                Zasticen zasticen = s.Load<Zasticen>(zasticenView.Id);
+                zasticen.Institucija = zasticenView.Institucija;
+                zasticen.NovcanaNaknada = zasticenView.NovcanaNaknada;
+                zasticen.Opis = zasticenView.Opis;
+                zasticen.DatumStavljanja = zasticenView.DatumStavljanja;
+
+                s.SaveOrUpdate(zasticen);
+                s.Flush();
+                s.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                throw;
+            }
+        }
 
         #endregion
     }

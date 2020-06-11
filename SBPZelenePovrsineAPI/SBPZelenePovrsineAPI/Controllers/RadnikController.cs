@@ -328,6 +328,21 @@ namespace SBPZelenePovrsineAPI.Controllers
         #region RadniOdnosi
 
         [HttpGet]
+        [Route("PreuzmiRadneOdnose")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetRadniOdnosi()
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiRadneOdnose());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
         [Route("PreuzmiRadniOdnos/{radiUId}")]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public IActionResult GetRadniOdnos(int radiUId)
@@ -426,6 +441,21 @@ namespace SBPZelenePovrsineAPI.Controllers
         #endregion
 
         #region Sefovanja
+
+        [HttpGet]
+        [Route("PreuzmiSefovanja")]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public IActionResult GetSefovanja()
+        {
+            try
+            {
+                return new JsonResult(DataProvider.VratiSefovanja());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
 
         [HttpGet]
         [Route("PreuzmiSefovanje/{jeSefId}")]

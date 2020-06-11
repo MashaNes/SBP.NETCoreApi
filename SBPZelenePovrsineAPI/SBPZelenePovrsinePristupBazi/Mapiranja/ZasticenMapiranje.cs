@@ -20,6 +20,7 @@ namespace SBPZelenePovrsinePristupBazi.Mapiranja
             Map(x => x.NovcanaNaknada, "NOVCANA_NAKNADA");
             Map(x => x.Institucija, "INSTITUCIJA");
             Map(x => x.DatumStavljanja, "DATUM_STAVLJANJA");
+            HasOne(x => x.Objekat).PropertyRef(x => x.Zasticen);
         }
     }
 }

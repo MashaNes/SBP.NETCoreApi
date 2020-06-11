@@ -21,6 +21,7 @@ namespace SBPZelenePovrsinePristupBazi.Mapiranja
             Map(x => x.RedniBroj, "REDNI_BROJ");
 
             References(x => x.Park).Column("PARK_ID").LazyLoad();
+            References(x => x.Zasticen).Column("ZASTITA_ID").Cascade.All().LazyLoad();
         }
     }
 
@@ -67,7 +68,7 @@ namespace SBPZelenePovrsinePristupBazi.Mapiranja
         {
             DiscriminatorValue("Spomenik");
 
-            References(x => x.Zasticen).Column("ZASTITA_ID").Cascade.All().LazyLoad();
+            //References(x => x.Zasticen).Column("ZASTITA_ID").Cascade.All().LazyLoad();
         }
     }
 
@@ -77,7 +78,7 @@ namespace SBPZelenePovrsinePristupBazi.Mapiranja
         {
             DiscriminatorValue("Skulptura");
 
-            References(x => x.Zasticen).Column("ZASTITA_ID").Cascade.All().LazyLoad();
+            //References(x => x.Zasticen).Column("ZASTITA_ID").Cascade.All().LazyLoad();
         }
     }
 
@@ -93,7 +94,7 @@ namespace SBPZelenePovrsinePristupBazi.Mapiranja
             Map(x => x.VisinaKrosnje, "VISINA_KROSNJE");
             Map(x => x.PovrsinaPokrivanja, "POVRSINA_POKRIVANJA");
 
-            References(x => x.Zasticen).Column("ZASTITA_ID").Cascade.All().LazyLoad();
+            //References(x => x.Zasticen).Column("ZASTITA_ID").Cascade.All().LazyLoad();
         }
     }
 }
