@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PetarTrifunovic\\Desktop\\6. semestar\\Sistemi baza podataka - novo\\Web API proba\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj": {}
+    "D:\\Fakultet\\3. Godina\\6. semestar\\Sistemi baza podataka\\GitHub\\Pt. 3\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PetarTrifunovic\\Desktop\\6. semestar\\Sistemi baza podataka - novo\\Web API proba\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj": {
+    "D:\\Fakultet\\3. Godina\\6. semestar\\Sistemi baza podataka\\GitHub\\Pt. 3\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PetarTrifunovic\\Desktop\\6. semestar\\Sistemi baza podataka - novo\\Web API proba\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj",
+        "projectUniqueName": "D:\\Fakultet\\3. Godina\\6. semestar\\Sistemi baza podataka\\GitHub\\Pt. 3\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj",
         "projectName": "SBPZelenePovrsinePristupBazi",
-        "projectPath": "C:\\Users\\PetarTrifunovic\\Desktop\\6. semestar\\Sistemi baza podataka - novo\\Web API proba\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj",
-        "packagesPath": "C:\\Users\\PetarTrifunovic\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PetarTrifunovic\\Desktop\\6. semestar\\Sistemi baza podataka - novo\\Web API proba\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\obj\\",
+        "projectPath": "D:\\Fakultet\\3. Godina\\6. semestar\\Sistemi baza podataka\\GitHub\\Pt. 3\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\SBPZelenePovrsinePristupBazi.csproj",
+        "packagesPath": "C:\\Users\\XPC\\.nuget\\packages\\",
+        "outputPath": "D:\\Fakultet\\3. Godina\\6. semestar\\Sistemi baza podataka\\GitHub\\Pt. 3\\SBP.NETCoreApi\\SBPZelenePovrsineAPI\\SBPZelenePovrsinePristupBazi\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\PetarTrifunovic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\XPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,18 +61,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.2, 3.1.2]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

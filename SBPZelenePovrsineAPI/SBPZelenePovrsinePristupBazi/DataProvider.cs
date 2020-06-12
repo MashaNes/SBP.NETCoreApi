@@ -2686,6 +2686,7 @@ namespace SBPZelenePovrsinePristupBazi
                     {
                         Spomenik spomenik = z.Objekat as Spomenik;
                         zv.Objekat = new SpomenikView(spomenik);
+                        
                     }
                     else if(z.Objekat.GetType() == typeof(Skulptura))
                     {
@@ -2695,7 +2696,9 @@ namespace SBPZelenePovrsinePristupBazi
                     else if (z.Objekat.GetType() == typeof(Drvo))
                     {
                         Drvo drvo = z.Objekat as Drvo;
-                        zv.Objekat = new DrvoView(drvo);
+                        DrvoView dv = new DrvoView(drvo);
+                        dv.Zasticen = zv;
+                        zv.Objekat = dv;
                     }
                     zv.Objekat.Park = new ParkView(z.Objekat.Park);
                     returnValue.Add(zv);
@@ -2718,9 +2721,8 @@ namespace SBPZelenePovrsinePristupBazi
             try
             {
                 ISession s = DataLayer.GetSession();
-                Park park = s.Get<Park>(idParka);
                 IList<Zasticen> zasticeni = s.Query<Zasticen>()
-                                             .Where(z => z.Objekat.Park.Naziv == park.Naziv && z.Objekat.Park.Opstina == park.Opstina)
+                                             .Where(z => z.Objekat.Park.Id == idParka)
                                              .ToList<Zasticen>();
 
                 foreach (Zasticen z in zasticeni)
@@ -2739,7 +2741,9 @@ namespace SBPZelenePovrsinePristupBazi
                     else if (z.Objekat.GetType() == typeof(Drvo))
                     {
                         Drvo drvo = z.Objekat as Drvo;
-                        zv.Objekat = new DrvoView(drvo);
+                        DrvoView dv = new DrvoView(drvo);
+                        dv.Zasticen = zv;
+                        zv.Objekat = dv;
                     }
                     zv.Objekat.Park = new ParkView(z.Objekat.Park);
                     returnValue.Add(zv);
