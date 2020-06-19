@@ -16,8 +16,8 @@ namespace SBPZelenePovrsinePristupBazi.DTOs
         public DateTime? DatumRodjenja { get; set; }
         public string StrucnaSprema { get; set; }
 
-        public IList<RadiUView> Parkovi { get; set; }
-        public IList<JeSefView> SefParkova { get; set; }
+        public virtual IList<RadiUView> Parkovi { get; set; }
+        public virtual IList<JeSefView> SefParkova { get; set; }
 
         public RadnikView()
         {
