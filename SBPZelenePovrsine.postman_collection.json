@@ -1,0 +1,2587 @@
+{
+	"info": {
+		"_postman_id": "2870da08-aec8-49d1-a32b-a87deae42b98",
+		"name": "SBPZelenePovrsine",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetZelenePovrsine",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/ecmascript",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiZelenePovrsine",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiZelenePovrsine"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetZelenaPovrsina",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiZelenuPovrsinu/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiZelenuPovrsinu",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteZelenaPovrsina",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/IzbrisiZelenuPovrsinu/46",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"IzbrisiZelenuPovrsinu",
+						"46"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDrvoredi",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiDrvorede",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiDrvorede"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDrvored",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiDrvored/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiDrvored",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateDrvored",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ulica\": \"Ivana Gorana Kovačića\",\r\n    \"duzina\": 60,\r\n    \"brojStabala\": 20,\r\n    \"vrstaDrveta\": \"Jasen\",\r\n    \"zonaUgrozenosti\": \"Zona srednje ugroženosti\",\r\n    \"opstina\": \"Niška Banja\",\r\n    \"tipPovrsine\": \"Drvored\"\r\n }"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/DodajDrvored",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"DodajDrvored"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeDrvored",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ulica\": \"Ivana Gorana Kovačića\",\r\n    \"duzina\": 62,\r\n    \"brojStabala\": 21,\r\n    \"vrstaDrveta\": \"Smreka\",\r\n    \"zonaUgrozenosti\": \"Zona srednje ugroženosti\",\r\n    \"opstina\": \"Niška Banja\",\r\n    \"tipPovrsine\": \"Drvored\",\r\n    \"id\": 47\r\n }"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PromeniDrvored",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PromeniDrvored"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteDrvored",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/IzbrisiDrvored/47",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"IzbrisiDrvored",
+						"47"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTravnjaci",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiTravnjake",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiTravnjake"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTravnjak",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiTravnjak/11",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiTravnjak",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateTravnjak",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"adresaZgrade\": \"Nosioci karađorđeve zvezde 5\",\r\n  \"povrsina\": 0.4,\r\n  \"zonaUgrozenosti\": \"Zona srednje ugroženosti\",\r\n  \"opstina\": \"Palilula\",\r\n  \"tipPovrsine\": \"Travnjak\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/DodajTravnjak",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"DodajTravnjak"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeTravnjak",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"adresaZgrade\": \"Nosioci karađorđeve zvezde 7\",\r\n  \"povrsina\": 0.45,\r\n  \"zonaUgrozenosti\": \"Zona srednje ugroženosti\",\r\n  \"opstina\": \"Palilula\",\r\n  \"tipPovrsine\": \"Travnjak\",\r\n  \"id\": 45\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PromeniTravnjak",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PromeniTravnjak"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteTravnjak",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/IzbrisiTravnjak/45",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"IzbrisiTravnjak",
+						"45"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetParkovi",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiParkove",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiParkove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPark",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PreuzmiPark/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PreuzmiPark",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreatePark",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"povrsina\": 12.4,\r\n  \"naziv\": \"Park Mashe Neshic\",\r\n  \"zonaUgrozenosti\": \"Zona niske ugroženosti\",\r\n  \"opstina\": \"Medijana\",\r\n  \"tipPovrsine\": \"Park\"\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/DodajPark",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"DodajPark"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangePark",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"povrsina\": 12.5,\r\n  \"naziv\": \"Park Masice Nesic\",\r\n  \"zonaUgrozenosti\": \"Zona niske ugroženosti\",\r\n  \"opstina\": \"Medijana\",\r\n  \"tipPovrsine\": \"Park\",\r\n  \"id\": 50\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/PromeniPark",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"PromeniPark"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePark",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/ZelenaPovrsina/IzbrisiPark/50",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"ZelenaPovrsina",
+						"IzbrisiPark",
+						"50"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetObjekti",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiObjekte",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiObjekte"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetObjekat",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiObjekat/13",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiObjekat",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteObjekat",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiObjekat/61",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiObjekat",
+						"61"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetKlupe",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiKlupe/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiKlupe",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetKlupa",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiKlupu/9",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiKlupu",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddKlupaToPark",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajKlupuUPark/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajKlupuUPark",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeKlupa",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 3,\r\n  \"id\": 3\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniKlupu",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniKlupu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteKlupa",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiKlupu/62",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiKlupu",
+						"62"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFontane",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiFontane/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiFontane",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFontana",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiFontanu/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiFontanu",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddFontanaToPark",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajFontanuUPark/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajFontanuUPark",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeFontana",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 2,\r\n  \"id\": 2\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniFontanu",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniFontanu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteFontana",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiFontanu/63",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiFontanu",
+						"63"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSvetiljke",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSvetiljke/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSvetiljke",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSvetiljka",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSvetiljku/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSvetiljku",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddSvetiljkaToPark",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajSvetiljkuUPark/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajSvetiljkuUPark",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeSvetiljka",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"redniBroj\": 6,\r\n  \"id\": 4\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniSvetiljku",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniSvetiljku"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteSvetiljka",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiSvetiljku/64",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiSvetiljku",
+						"64"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetIgralista",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiIgralista/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiIgralista",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetIgraliste",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiIgraliste/65",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiIgraliste",
+						"65"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateIgraliste",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"brojIgracaka\": 15,\r\n  \"starostDeceOd\": 4,\r\n  \"starostDeceDo\": 10,\r\n  \"pesak\": \"Da\",\r\n  \"redniBroj\":7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajIgraliste/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajIgraliste",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeIgraliste",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 65,\r\n  \"brojIgracaka\": 16,\r\n  \"starostDeceOd\": 2,\r\n  \"starostDeceDo\": 12,\r\n  \"pesak\": \"Ne\",\r\n  \"redniBroj\":8\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniIgraliste",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniIgraliste"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteIgraliste",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiIgraliste/65",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiIgraliste",
+						"65"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSpomenici",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSpomenike/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSpomenike",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSpomenik",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSpomenik/6",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSpomenik",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateSpomenik",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zasticen\": {\r\n    \"opis\": \"Spomenik predstavlja probu\",\r\n    \"novcanaNaknada\": 6000,\r\n    \"institucija\": \"Zavod za zaštitu državne svojine\",\r\n    \"datumStavljanja\": \"2015-12-17T00:00:00\"\r\n  },\r\n  \"redniBroj\": 7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajSpomenik/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajSpomenik",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeSpomenik",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 66,\r\n  \"redniBroj\":8\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniSpomenik",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniSpomenik"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteSpomenik",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiSpomenik/66",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiSpomenik",
+						"66"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSkulpture",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSkulpture/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSkulpture",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSkulptura",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiSkulpturu/52",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiSkulpturu",
+						"52"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateSkulptura",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zasticen\": {\r\n    \"opis\": \"Skulptura predstavlja probu\",\r\n    \"novcanaNaknada\":76000,\r\n    \"institucija\": \"Zavod za zaštitu državne svojine\",\r\n    \"datumStavljanja\": \"2015-12-17T00:00:00\"\r\n  },\r\n  \"redniBroj\": 7\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajSkulpturu/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajSkulpturu",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeSkulptura",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 67,\r\n  \"redniBroj\":8\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniSkulpturu",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniSkulpturu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteSkulptura",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiSkulpturu/67",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiSkulpturu",
+						"67"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDrvece",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiDrvece/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiDrvece",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetDrvo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PreuzmiDrvo/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PreuzmiDrvo",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateDrvo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"zasticen\": {\r\n    \"opis\": \"Drvo predstavlja probu\",\r\n    \"novcanaNaknada\":76000,\r\n    \"institucija\": \"Zavod za zaštitu državne svojine\",\r\n    \"datumStavljanja\": \"2015-12-17T00:00:00\"\r\n  },\r\n  \"redniBroj\": 7,\r\n  \"vrsta\": \"Lipa\",\r\n  \"obimDebla\": 3.15,\r\n  \"datumSadnje\": \"2013-03-05T00:00:00\",\r\n  \"visinaKrosnje\": 12,\r\n  \"povrsinaPokrivanja\": 7.78\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/DodajDrvo/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"DodajDrvo",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeDrvo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 72,\r\n  \"redniBroj\":9,\r\n  \"vrsta\": \"proba vrsta\",\r\n  \"obimDebla\": 5.15,\r\n  \"datumSadnje\": \"2015-06-05T00:00:00\",\r\n  \"visinaKrosnje\": 13,\r\n  \"povrsinaPokrivanja\": 8.78\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Objekat/PromeniDrvo",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"PromeniDrvo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteDrvo",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Objekat/IzbrisiDrvo/72",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Objekat",
+						"IzbrisiDrvo",
+						"72"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadnici",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnike",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnike"
+					]
+				},
+				"description": "Pribavljanje svih radnika"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadnik",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnika/321",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnika",
+						"321"
+					]
+				},
+				"description": "Pribavljanje konkretnog radnika"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRadnik",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/IzbrisiRadnika/521",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"IzbrisiRadnika",
+						"521"
+					]
+				},
+				"description": "Brisanje konkretnog radnika"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadniciOdrzavanjeZelenila",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnikeOdrzavanjeZelenila",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnikeOdrzavanjeZelenila"
+					]
+				},
+				"description": "Pribavljanje svih radnika koji rade na održavanju zelenila"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadnikOdrzavanjeZelenila",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnikaOdrzavanjeZelenila/165",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnikaOdrzavanjeZelenila",
+						"165"
+					]
+				},
+				"description": "Pribavljanje konkretnog radnika na održavanju zelenila"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateRadnikOdrzavanjeZelenila",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"BrRadneKnjizice\": \"521\",\n\t\"MBr\": \"2106978730039\",\n\t\"Ime\": \"Aleksa\",\n\t\"ImeRoditelja\": \"Ivan\",\n\t\"Prezime\": \"Trajković\",\n\t\"Adresa\": \"Aleksandra Medvedeva 21, Niš\",\n\t\"DatumRodjenja\": \"1978-06-21\",\n\t\"StrucnaSprema\": \"Drugi stepen\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/DodajRadnikaOdrzavanjeZelenila",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"DodajRadnikaOdrzavanjeZelenila"
+					]
+				},
+				"description": "Dodavanje radnika na odrzavanju zelenila"
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeRadnikOdrzavanjeZelenila",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"BrRadneKnjizice\": \"521\",\n\t\"MBr\": \"2106978730039\",\n\t\"Ime\": \"Aleksa\",\n\t\"ImeRoditelja\": \"Ivan\",\n\t\"Prezime\": \"Trajković\",\n\t\"Adresa\": \"Bulevar Nemanjića 64, Niš\",\n\t\"DatumRodjenja\": \"2020-06-21\",\n\t\"StrucnaSprema\": \"Treći stepen\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PromeniRadnikaOdrzavanjeZelenila",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PromeniRadnikaOdrzavanjeZelenila"
+					]
+				},
+				"description": "Izmena podataka o konkretnom radniku koji radi na održavanju zelenila"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRadnikOdrzavanjeZelenila",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/IzbrisiRadnikaOdrzavanjeZelenila/521",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"IzbrisiRadnikaOdrzavanjeZelenila",
+						"521"
+					]
+				},
+				"description": "Brisanje konkretnog radnika koji radi na odrzavanju zelenila"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadniciOdrzavanjeHigijene",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnikeOdrzavanjeHigijene",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnikeOdrzavanjeHigijene"
+					]
+				},
+				"description": "Pribavljanje svih radnika koji rade na održavanju higijene"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadnikOdrzavanjeHigijene",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnikaOdrzavanjeHigijene/302",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnikaOdrzavanjeHigijene",
+						"302"
+					]
+				},
+				"description": "Pribavljanje konkretnog radnika koji radi na održavanju higijene"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateRadnikOdrzavanjeHigijene",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"BrRadneKnjizice\": \"444\",\n\t\"MBr\": \"1204988730039\",\n\t\"Ime\": \"Ivana\",\n\t\"ImeRoditelja\": \"Milan\",\n\t\"Prezime\": \"Stanković\",\n\t\"Adresa\": \"Danila Kiša 15, Niš\",\n\t\"DatumRodjenja\": \"1988-04-12\",\n\t\"StrucnaSprema\": \"Treći stepen\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/DodajRadnikaOdrzavanjeHigijene",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"DodajRadnikaOdrzavanjeHigijene"
+					]
+				},
+				"description": "Dodavanje novog radnika na odrzavanju higijene"
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeRadnikOdrzavanjeHigijene",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"BrRadneKnjizice\": \"444\",\n\t\"MBr\": \"1204988730039\",\n\t\"Ime\": \"Ivana\",\n\t\"ImeRoditelja\": \"Milan\",\n\t\"Prezime\": \"Jovanović\",\n\t\"Adresa\": \"Ulica 9. maj 5, Niš\",\n\t\"DatumRodjenja\": \"1988-04-12\",\n\t\"StrucnaSprema\": \"Treći stepen\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PromeniRadnikaOdrzavanjeHigijene",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PromeniRadnikaOdrzavanjeHigijene"
+					]
+				},
+				"description": "Izmena konkretnog radnika na odrzavanju higijene"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRadnikOdrzavanjeHigijene",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/IzbrisiRadnikaOdrzavanjeHigijene/444",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"IzbrisiRadnikaOdrzavanjeHigijene",
+						"444"
+					]
+				},
+				"description": "Brisanje konkretnog radnika na odrzavanju higijene"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadniciOdrzavanjeObjekata",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnikeOdrzavanjeObjekata",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnikeOdrzavanjeObjekata"
+					]
+				},
+				"description": "Preuzimanje svih radnika koji rade na odrzavanju objekata u parku"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadnikOdrzavanjeObjekata",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadnikaOdrzavanjeObjekata/120",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadnikaOdrzavanjeObjekata",
+						"120"
+					]
+				},
+				"description": "Preuzimanje konkretnog radnika koji radi na odrzavanju objekata u parku"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateRadnikOdrzavanjeObjekata",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"DatumOd\": \"2011-03-01\",\n\t\"DatumDo\": \"2013-11-10\",\n\t\"Radnik\": {\n\t\t\"BrRadneKnjizice\": \"545\",\n\t\t\"MBr\": \"1302985730039\",\n\t\t\"Ime\": \"Darko\",\n\t\t\"ImeRoditelja\": \"Miloš\",\n\t\t\"Prezime\": \"Ćirković\",\n\t\t\"Adresa\": \"Ratka Jovića 13, Niš\",\n\t\t\"DatumRodjenja\": \"1985-02-13\",\n\t\t\"StrucnaSprema\": \"Prvi stepen\"\n\t}\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/DodajRadnikaOdrzavanjeObjekata/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"DodajRadnikaOdrzavanjeObjekata",
+						"1"
+					]
+				},
+				"description": "Dodavanje, u navedeni park, radnika koji radi na održavanju objekata u parku"
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeRadnikOdrzavanjeObjekata",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"BrRadneKnjizice\": \"545\",\n\t\"MBr\": \"1302985730039\",\n\t\"Ime\": \"Darko\",\n\t\"ImeRoditelja\": \"Miloš\",\n\t\"Prezime\": \"Ćirković\",\n\t\"Adresa\": \"Isidore Sekulić 12, Niš\",\n\t\"DatumRodjenja\": \"1985-02-13\",\n\t\"StrucnaSprema\": \"Drugi stepen\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PromeniRadnikaOdrzavanjeObjekata",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PromeniRadnikaOdrzavanjeObjekata"
+					]
+				},
+				"description": "Izmena radnika koji radi na održavanju objekata u parku"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRadnikOdrzavanjeObjekata",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/IzbrisiRadnikaOdrzavanjeObjekata/545",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"IzbrisiRadnikaOdrzavanjeObjekata",
+						"545"
+					]
+				},
+				"description": "Brisanje konkretnog radnika koji radi na održavanju objekata u parku"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadniOdnosi",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadneOdnose",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadneOdnose"
+					]
+				},
+				"description": "Pribavlja sve postojeće vrste iz tabele RadiU"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadiU",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadniOdnos/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadniOdnos",
+						"4"
+					]
+				},
+				"description": "Pribavljanje radnog odnosa preko ID-ja"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadiURadnik",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadneOdnoseRadnika/165",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadneOdnoseRadnika",
+						"165"
+					]
+				},
+				"description": "Pribaljanje radnog odnosa za radnika sa navedenim ID-jem"
+			},
+			"response": []
+		},
+		{
+			"name": "GetRadiUPark",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiRadneOdnoseIzParka/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiRadneOdnoseIzParka",
+						"3"
+					]
+				},
+				"description": "Pribavljanje svih radnih odnosa vezanih za park sa navedenim ID-jem"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateRadiU",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"DatumOd\": \"2009-03-01\",\n\t\"DatumDo\": \"2011-10-11\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/DodajRadniOdnos/165/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"DodajRadniOdnos",
+						"165",
+						"5"
+					]
+				},
+				"description": "Dodavanje nove stavke u tabelu RadiU"
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeRadiU",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Id\": 67,\n\t\"DatumOd\": \"2008-05-21\",\n\t\"DatumDo\": \"2014-06-08\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/IzmeniRadniOdnos",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"IzmeniRadniOdnos"
+					]
+				},
+				"description": "Izmena datuma za stavku u RadiU sa navedenim ID-jem"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRadiU",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/IzbrisiRadniOdnos/67",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"IzbrisiRadniOdnos",
+						"67"
+					]
+				},
+				"description": "Brisanje stavke iz tabele RadiU"
+			},
+			"response": []
+		},
+		{
+			"name": "GetSefovanja",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiSefovanja",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiSefovanja"
+					]
+				},
+				"description": "Pribavlja sva postojeća šefovanja"
+			},
+			"response": []
+		},
+		{
+			"name": "GetJeSef",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiSefovanje/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiSefovanje",
+						"4"
+					]
+				},
+				"description": "Pribavljanje konkretne stavke iz tabele JeSef"
+			},
+			"response": []
+		},
+		{
+			"name": "GetJeSefRadnik",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiSefovanjaRadnika/120",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiSefovanjaRadnika",
+						"120"
+					]
+				},
+				"description": "Pribavljanje istorije šefovanja konkretnog radnika"
+			},
+			"response": []
+		},
+		{
+			"name": "GetJeSefPark",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/PreuzmiSefovanjaIzParka/3",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"PreuzmiSefovanjaIzParka",
+						"3"
+					]
+				},
+				"description": "Pribavljanje istorije šefovanja vezane za konkretan park"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateJeSef",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"DatumOd\": \"2012-08-14\",\n\t\"DatumDo\": \"2014-02-01\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/DodajSefovanje/165/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"DodajSefovanje",
+						"165",
+						"5"
+					]
+				},
+				"description": "Kreiranje stavke u tabeli JeSef"
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeJeSef",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"Id\": 62,\n\t\"DatumOd\": \"2012-06-21\",\n\t\"DatumDo\": \"2012-07-21\"\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44332/Radnik/IzmeniSefovanje",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"IzmeniSefovanje"
+					]
+				},
+				"description": "Izmena određene stavke iz tabele JeSef"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteJeSef",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44332/Radnik/IzbrisiSefovanje/62",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Radnik",
+						"IzbrisiSefovanje",
+						"62"
+					]
+				},
+				"description": "Brisanje stavke iz tabele JeSef"
+			},
+			"response": []
+		},
+		{
+			"name": "GetZasticeniObjekti",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Zasticen/PreuzmiZasticeneObjekte",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Zasticen",
+						"PreuzmiZasticeneObjekte"
+					]
+				},
+				"description": "Pribavljanje svih zaštićenih objekata"
+			},
+			"response": []
+		},
+		{
+			"name": "GetZasticenObjekat",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Zasticen/PreuzmiZasticenObjekat/23",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Zasticen",
+						"PreuzmiZasticenObjekat",
+						"23"
+					]
+				},
+				"description": "Pribavlja konkretan zaštićen objekat"
+			},
+			"response": []
+		},
+		{
+			"name": "GetZasticeniObjektiPark",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Zasticen/PreuzmiZasticeneObjekteIzParka/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Zasticen",
+						"PreuzmiZasticeneObjekteIzParka",
+						"5"
+					]
+				},
+				"description": "Pribavlja sve zaštićene objekte iz navedenog parka"
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteZastita",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44332/Zasticen/IzbrisiZastitu/63",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Zasticen",
+						"IzbrisiZastitu",
+						"63"
+					]
+				},
+				"description": "Brisanje zaštite sa određenog objekta"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateZastita",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"opis\": \"Drvo je od velikog značaja zbog starosti\",\r\n    \"novcanaNaknada\": 36000,\r\n    \"institucija\": \"Zavod za zaštitu životne sredine\",\r\n    \"datumStavljanja\": \"2012-11-03T00:00:00\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44332/Zasticen/DodajZastituObjektu/5",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Zasticen",
+						"DodajZastituObjektu",
+						"5"
+					]
+				},
+				"description": "Stavljanje postojećeg objekta pod zaštitu"
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeZasticen",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 62,\r\n    \"opis\": \"Drvo je od velikog značaja zbog starosti\",\r\n    \"novcanaNaknada\": 16000,\r\n    \"institucija\": \"Zavod za zaštitu životne sredine, Niš\",\r\n    \"datumStavljanja\": \"2012-11-03T00:00:00\"\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44332/Zasticen/PromeniZastitu",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44332",
+					"path": [
+						"Zasticen",
+						"PromeniZastitu"
+					]
+				},
+				"description": "Promena postojeće zaštite"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
